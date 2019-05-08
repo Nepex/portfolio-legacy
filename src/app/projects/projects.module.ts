@@ -4,6 +4,7 @@ import { MiscProjectsComponent } from './misc-projects/misc-projects.component';
 import { MototraxComponent } from './mototrax/mototrax.component';
 import { MototraxMobileComponent } from './mototrax-mobile/mototrax-mobile.component';
 import { PrateComponent } from './prate/prate.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { PrateComponent } from './prate/prate.component';
         MiscProjectsComponent,
         MototraxComponent,
         MototraxMobileComponent,
-        PrateComponent
+        PrateComponent,
+        ProjectsComponent
     ],
     providers: [],
 })

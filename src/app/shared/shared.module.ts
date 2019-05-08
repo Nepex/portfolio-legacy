@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { NavFooterComponent } from './nav-footer/nav-footer.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
 
 
 @NgModule({
     imports: [],
-    exports: [NavFooterComponent],
-    declarations: [NavFooterComponent],
+    exports: [MainNavComponent],
+    declarations: [MainNavComponent],
     providers: [],
 })
 export class SharedModule { }
