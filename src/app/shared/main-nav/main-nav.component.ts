@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { debounce } from 'lodash';
 
 @Component({
     selector: 'prf-main-nav',
@@ -38,11 +39,20 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 
 export class MainNavComponent implements OnInit {
-    @Input() selectedTab: string;
     isCollapsed: boolean = true;
     showMenu: boolean = true;
 
-    constructor() { }
+    constructor() { 
+        // delay resize function so it doesn't get called too many times
+        this.onResize = debounce(this.onResize, 100, {leading: false, trailing: true})
+    }
 
     ngOnInit() { }
+
+    @HostListener('window:resize', ['$event'])
+    onResize() {
+        if (window.innerWidth < 992) {
+            this.showMenu = true;
+        }
+    }
 }

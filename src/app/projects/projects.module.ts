@@ -5,10 +5,13 @@ import { MototraxComponent } from './mototrax/mototrax.component';
 import { MototraxMobileComponent } from './mototrax-mobile/mototrax-mobile.component';
 import { PrateComponent } from './prate/prate.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
-    imports: [],
+    imports: [
+        SharedModule
+    ],
     exports: [],
     declarations: [
         CascadeComponent,

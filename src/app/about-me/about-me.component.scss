@@ -1,0 +1,45 @@
+.title-heading {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.info-col {
+    padding-top: 35px;
+    font-size: 15px;
+    line-height: 25px;
+}
+
+.info-row {
+    border-top: rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+    padding-bottom: 25px;
+    background-color: #eee;
+}
+
+.icon-heading {
+    font-size: 20px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+.about-me-section {
+    padding: 20px 20px 40px 20px;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: underline;
+    color: #666;
+}
+
+a:hover {
+    color: rgb(131, 131, 131);
+    text-decoration: none;
+}
+
+.personal-img {
+    margin-top: 25px;
+    border-radius: 150px;
+    height: 100px;
+    width: 100px;
+}
