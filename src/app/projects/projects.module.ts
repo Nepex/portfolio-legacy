@@ -1,26 +1,27 @@
 import { NgModule } from '@angular/core';
-import { CascadeComponent } from './cascade/cascade.component';
-import { MiscProjectsComponent } from './misc-projects/misc-projects.component';
-import { MototraxComponent } from './mototrax/mototrax.component';
-import { MototraxMobileComponent } from './mototrax-mobile/mototrax-mobile.component';
-import { PrateComponent } from './prate/prate.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { SharedModule } from '../shared/shared.module';
-
+import { CascadeModalComponent } from './cascade-modal/cascade-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LightboxModule } from 'ngx-lightbox';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
     imports: [
-        SharedModule
+        BrowserModule,
+        SharedModule,
+        NgbModule,
+        LightboxModule
     ],
-    exports: [],
+    exports: [
+    ],
     declarations: [
-        CascadeComponent,
-        MiscProjectsComponent,
-        MototraxComponent,
-        MototraxMobileComponent,
-        PrateComponent,
+        CascadeModalComponent,
         ProjectsComponent
     ],
     providers: [],
+    entryComponents: [
+        CascadeModalComponent
+    ]
 })
 export class ProjectsModule { }
