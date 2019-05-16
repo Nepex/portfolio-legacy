@@ -1,0 +1,38 @@
+<div class="modal-header no-pad-margin">
+    <div class="close-btn-container text-center no-pad-margin cursor-pointer" (click)="activeModal.dismiss()">
+        <i class="fas fa-times close-btn"></i>
+    </div>
+    <span class="project-title">Air Prop Spec.</span>
+</div>
+<div class="container modal-body">
+    <div class="row">
+        <div class="col-12 text-center">
+            <div class="description text-left">
+                Air Prop Spec. was a project I worked on in 2015 as a freelancer. It's an aviation website containing a variety of company information on work practices and work done.
+            </div>
+
+            <div class="resources-used">
+                <i>Made using...</i><br />
+                HTML, CSS
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-6 project-col" *ngFor="let image of images; let i=index">
+                    <div class="project-content" (click)="open(i)">
+                        <img [src]="image.thumb" class="project-img" />
+
+                        <div class="project-zoom-container">
+                            <div class="project-zoom">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer text-center">
+    Source Code: &nbsp; N/A
+</div>

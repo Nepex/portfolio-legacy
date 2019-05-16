@@ -1,0 +1,41 @@
+<div class="modal-header no-pad-margin">
+    <div class="close-btn-container text-center no-pad-margin cursor-pointer" (click)="activeModal.dismiss()">
+        <i class="fas fa-times close-btn"></i>
+    </div>
+    <span class="project-title">MotoTrax Mobile</span>
+</div>
+<div class="container modal-body">
+    <div class="row">
+        <div class="col-12 text-center">
+            <div class="description text-left">
+                This is mobile version of Mototrax. It is a cross-platform application for iOS and Android built using
+                Xamarin with C#. It contains basic features from the MotoTrax web version. I primarily coded the
+                functionality and implemented layouts made by our marketing department. All assets belong to
+                AngelTrax.
+            </div>
+
+            <div class="resources-used">
+                <i>Made using...</i><br />
+                Xamarin, XAML, C#
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-6 project-col" *ngFor="let image of images; let i=index">
+                    <div class="project-content" (click)="open(i)">
+                        <img [src]="image.thumb" class="project-img" />
+
+                        <div class="project-zoom-container">
+                            <div class="project-zoom">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer text-center">
+    Source Code: &nbsp; N/A
+</div>
