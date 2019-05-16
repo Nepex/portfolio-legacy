@@ -1,11 +1,264 @@
+<a name="home"></a>
 <div class="container-fluid h-100">
+    <div class="background-mask"></div>
     <prf-main-nav></prf-main-nav>
-    <div class="row main-content">
+    <!-- Home -->
+    <div class="row main-content home">
         <div class="col-12 my-auto text-center">
             <div class="name-title-container">
                 <div class="name-heading">Matt Bacon</div>
                 <hr class="name-hr">
                 <div class="title-heading">web dev - programmer</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Me -->
+    <div class="main-content">
+        <a name="about-me"></a>
+        <div class="row about-me-row">
+            <div class="col-12 text-center info-col">
+                <div class="about-title-heading">About Me</div>
+
+                <div class="row">
+                    <div class="col-lg-2 offset-lg-5 col-10 offset-1 text-center">
+                        <img src="../../assets/images/conker.jpg" class="personal-img" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 offset-lg-3 col-10 offset-1">
+                        <div class="about-me-section text-left">
+                            Hello, my name is Matt. I consider myself a front-end web developer / designer with light
+                            to medium experience in back-end development using node, server and database management,
+                            cross-platform
+                            mobile
+                            applications using Xamarin, and .NET programming using C#. I'm also self-trained in PHP and
+                            mySQL using Apache servers with the stack.<br /><br />
+
+                            I have over three years of professional on-site job experience
+                            as a programmer and web developer, as well as a year of freelance web development along side
+                            several years of self-learning various languages and technologies. At my job I primarily
+                            coded front-end applications
+                            using Angular2+ and mobile applications using Xamarin for cross-platform availabilty. I'm
+                            very familiar with unit testing
+                            on both avenues. I'm passionate about coding and creating
+                            a smooth user experience for all using any products/applications with both mobile and
+                            desktop environments
+                            kept in mind.<br /><br />
+
+                            During my spare time I enjoy indulging in video games, writing/producing music, or just
+                            writing code for web pages
+                            or applications that I find interesting. I'm always looking for new projects to contribute
+                            to
+                            and am a timely and compliant learner. So feel free to contact me about anything!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row info-row">
+            <div class="col-lg-4 col-12 text-center info-col">
+
+                <span class="about-title-heading">Experience</span> <br />
+
+                <i class="fas fa-briefcase icon-heading"></i> <br />
+
+                <strong>
+                    <i>Junior Programmer</i><br />
+                    AngelTrax<br />
+                    2016 - 2019<br />
+                </strong>
+                <i class="fas fa-map-marker-alt"></i> Dothan, AL<br /> <br />
+
+                <strong>
+                    <i>Freelance Web Developer</i><br />
+                    Self-Employed<br />
+                    2015 - 2016<br />
+                </strong>
+                <i class="fas fa-map-marker-alt"></i> Slocomb, AL <br />
+
+                <i class="fas fa-graduation-cap icon-heading"></i> <br />
+                <strong>
+                    <i>Bachelor's Degree (CIS)</i><br />
+                    Troy University<br />
+                    2010 - 2014<br />
+                </strong>
+                <i class="fas fa-map-marker-alt"></i> Dothan, AL
+
+            </div>
+
+            <div class="col-lg-4 col-12 text-center info-col">
+
+                <span class="about-title-heading">Knowledge</span><br />
+                <i class="fas fa-eye icon-heading"></i><br />
+                <span placement="left" ngbTooltip="★★★★★">Angular2+</span><br />
+                <span placement="left" ngbTooltip="★★★★★">TypeScript</span><br />
+                <span placement="left" ngbTooltip="★★★★★">HTML5</span><br />
+                <span placement="left" ngbTooltip="★★★★★">SCSS/Bootstrap</span><br />
+                <i class="fas fa-server icon-heading"></i><br />
+                <span placement="left" ngbTooltip="★★★☆☆">NodeJS</span><br />
+                <span placement="left" ngbTooltip="★★★★☆">PHP</span><br />
+                <span placement="left" ngbTooltip="★★★★☆">PostgreSQL</span><br />
+                <span placement="left" ngbTooltip="★★★★☆">mySQL</span><br />
+                <i class="fas fa-code icon-heading"></i><br />
+                <span placement="left" ngbTooltip="★★★☆☆">C#</span><br />
+                <span placement="left" ngbTooltip="★★★★☆">Xamarin</span><br />
+                <span placement="left" ngbTooltip="★★★★☆">Unit Testing</span>
+            </div>
+
+            <div class="col-lg-4 col-12 text-center info-col">
+
+                <span class="about-title-heading">Contact</span><br />
+
+                <i class="fas fa-envelope icon-heading"></i><br />
+                <a href="mailto:mattb103190@gmail.com">mattb103190@gmail.com</a><br />
+
+                <i class="fas fa-mobile-alt icon-heading"></i><br />
+                <a href="tel:13347969971">1-334-796-9971</a><br />
+
+                <i class="fab fa-github icon-heading"></i><br />
+                <a href="https://www.github.com/nepex" target="_blank">Nepex</a> <br />
+                <a href="https://www.github.com/mattb103190" target="_blank">mattb103190</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="main-content projects">
+        <a name="projects"></a>
+        <div class="row projects-row">
+            <div class="col-lg-6 offset-lg-3 text-center">
+                <div class="projects-title-heading">Projects</div>
+
+                <div class="row projects-row">
+                    <div class="col-lg-4 col-12 project-col">
+
+                        <div class="project-content" (click)="openProjectModal('cascade')">
+                            <img src="../../../assets//images/portfolio-imgs/cascade-travel.png" class="project-img" />
+
+                            <div class="project-title-container">
+                                <div class="project-title">
+                                    <strong>Cascade</strong><br />
+                                    Browser Game
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4 col-12 project-col">
+                        <div class="project-content" (click)="openProjectModal('prate')">
+                            <img src="../../../assets//images/portfolio-imgs/prate-chat-lowres.png"
+                                class="project-img" />
+
+                            <div class="project-title-container">
+                                <div class="project-title">
+                                    <strong>Prate</strong><br />
+                                    Chat Matcher
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-12 project-col">
+                        <div class="project-content" (click)="openProjectModal('mototrax-web')">
+                            <img src="../../../assets//images/portfolio-imgs/mototrax-web-livetracking-lowres.png"
+                                class="project-img" />
+
+                            <div class="project-title-container">
+                                <div class="project-title">
+                                    <strong>MotoTrax</strong><br />
+                                    Vehicle Manager
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-12 project-col">
+                        <div class="project-content" (click)="openProjectModal('mototrax-mobile')">
+                            <img src="../../../assets//images/portfolio-imgs/mototrax-mobile-menu.png"
+                                class="mobile-project-img" style="margin-right: 5px;" />
+                            <img src="../../../assets//images/portfolio-imgs/mototrax-mobile-map.png"
+                                class="mobile-project-img" />
+
+                            <div class="project-title-container">
+                                <div class="project-title">
+                                    <strong>MotoTrax Mobile</strong><br />
+                                    Vehicle Manager
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-12 project-col">
+                        <div class="project-content" (click)="openProjectModal('artofdreams')">
+                            <img src="../../../assets//images/portfolio-imgs/artofdreams.jpg" class="project-img" />
+
+                            <div class="project-title-container">
+                                <div class="project-title">
+                                    <strong>Art of Dreams</strong><br />
+                                    Browser Game
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-12 project-col">
+                        <div class="project-content" (click)="openProjectModal('pevo')">
+                            <img src="../../../assets//images/portfolio-imgs/pevo.jpg" class="project-img" />
+
+                            <div class="project-title-container">
+                                <div class="project-title">
+                                    <strong>Fallen PEVO</strong><br />
+                                    Charity Website
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-12 project-col">
+                        <div class="project-content" (click)="openProjectModal('pihomescreen')">
+                            <img src="../../../assets//images/portfolio-imgs/pi-homescreen-lowres.png"
+                                class="project-img" />
+
+                            <div class="project-title-container">
+                                <div class="project-title">
+                                    <strong>PI Homescreen</strong><br />
+                                    Home Page
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-12 project-col">
+                        <div class="project-content" (click)="openProjectModal('globalstar')">
+                            <img src="../../../assets//images/portfolio-imgs/globalaerospace.jpg" class="project-img" />
+
+                            <div class="project-title-container">
+                                <div class="project-title">
+                                    <strong>GlobalStar Aerospace</strong><br />
+                                    Aviation Website
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-12 project-col">
+                        <div class="project-content" (click)="openProjectModal('airprop')">
+                            <img src="../../../assets//images/portfolio-imgs/airpropspec.jpg" class="project-img" />
+
+                            <div class="project-title-container">
+                                <div class="project-title">
+                                    <strong>Air Prop Spec.</strong><br />
+                                    Aviation Website
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>

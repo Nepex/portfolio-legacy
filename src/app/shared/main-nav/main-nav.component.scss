@@ -1,6 +1,7 @@
 .nav-container {
-  position: relative;
-  z-index: 2;
+  position: fixed;
+  z-index: 3;
+  width: 100%;
 }
 
 .menu {
@@ -39,10 +40,10 @@
 .menu-toggle-btn {
   font-size: 20px;
   padding-top: 10px;
-  position: absolute;
+  position: fixed;
   right: 15px;
   top: 2px;
-  z-index: 2;
+  z-index: 3;
 }
 
 @media (min-width: 344px) {

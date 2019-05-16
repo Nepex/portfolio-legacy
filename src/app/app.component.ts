@@ -28,8 +28,15 @@ export class AppComponent implements OnDestroy {
 
   constructor(private router: Router) {
     this.routerSub = this.router.events.subscribe((event: any) => {
-      this.isLoadingRoute = true;
       this._navigationInterceptor(event);
+
+      if (event instanceof NavigationStart) {
+        if (event.navigationTrigger === 'popstate') {
+          return;
+        }
+
+        this.isLoadingRoute = true;
+      }
     });
   }
 
@@ -38,9 +45,6 @@ export class AppComponent implements OnDestroy {
   }
 
   private _navigationInterceptor(event: Event): void {
-    // if (event instanceof NavigationStart) {
-    //   this.isLoadingRoute = true;
-    // } else 
 
     if (event instanceof NavigationEnd || event instanceof NavigationCancel) {
       setTimeout(() => {
