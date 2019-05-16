@@ -44,7 +44,7 @@ export class MainNavComponent implements OnInit {
 
     constructor() { 
         // delay resize function so it doesn't get called too many times
-        this.onResize = debounce(this.onResize, 100, {leading: false, trailing: true})
+        this.onResize = debounce(this.onResize, 100, {leading: false, trailing: true});
     }
 
     ngOnInit() { }

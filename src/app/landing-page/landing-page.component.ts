@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { CascadeModalComponent } from '../projects/cascade-modal/cascade-modal.component';
 import { PrateModalComponent } from '../projects/prate-modal/prate-modal.component';
 import { MototraxWebModalComponent } from '../projects/mototrax-web-modal/mototrax-web-modal.component';
@@ -9,6 +9,7 @@ import { PiHomescreenModalComponent } from '../projects/pihomescreen-modal/pihom
 import { GlobalstarModalComponent } from '../projects/globalstar-modal/globalstar-modal.component';
 import { AirPropModalComponent } from '../projects/airprop-modal/airprop-modal.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { debounce } from 'lodash';
 
 @Component({
     selector: 'prf-landing-page',
@@ -17,39 +18,66 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class LandingPageComponent implements OnInit {
-    constructor(private modal: NgbModal) { }
+    scrollPos: number;
+
+    constructor(private modal: NgbModal) {
+        this.onScroll = debounce(this.onScroll, 100, { leading: false, trailing: true })
+    }
 
     ngOnInit() { }
 
     openProjectModal(project) {
+        let modalRef;
+
         switch (project) {
             case 'cascade':
-                this.modal.open(CascadeModalComponent, { size: 'lg' });
+                modalRef = this.modal.open(CascadeModalComponent, { size: 'lg' });
                 break;
             case 'prate':
-                this.modal.open(PrateModalComponent, { size: 'lg' });
+                modalRef = this.modal.open(PrateModalComponent, { size: 'lg' });
                 break;
             case 'mototrax-web':
-                this.modal.open(MototraxWebModalComponent, { size: 'lg' });
+                modalRef = this.modal.open(MototraxWebModalComponent, { size: 'lg' });
                 break;
             case 'mototrax-mobile':
-                this.modal.open(MototraxMobileModalComponent, { size: 'lg' });
+                modalRef = this.modal.open(MototraxMobileModalComponent, { size: 'lg' });
                 break;
             case 'artofdreams':
-                this.modal.open(ArtOfDreamsModalComponent, { size: 'lg' });
+                modalRef = this.modal.open(ArtOfDreamsModalComponent, { size: 'lg' });
                 break;
             case 'pevo':
-                this.modal.open(PevoModalComponent, { size: 'lg' });
+                modalRef = this.modal.open(PevoModalComponent, { size: 'lg' });
                 break;
             case 'pihomescreen':
-                this.modal.open(PiHomescreenModalComponent, { size: 'lg' });
+                modalRef = this.modal.open(PiHomescreenModalComponent, { size: 'lg' });
                 break;
             case 'globalstar':
-                this.modal.open(GlobalstarModalComponent, { size: 'lg' });
+                modalRef = this.modal.open(GlobalstarModalComponent, { size: 'lg' });
                 break;
             case 'airprop':
-                this.modal.open(AirPropModalComponent, { size: 'lg' });
+                modalRef = this.modal.open(AirPropModalComponent, { size: 'lg' });
                 break;
         }
+
+        modalRef.result.then(() => { }, () => {
+            // terrible workaround for weird firefox scrolling issue on modal close
+            (window.document.querySelector('body') as HTMLElement).style.scrollBehavior = 'auto';
+            (window.document.querySelector('html') as HTMLElement).style.scrollBehavior = 'auto';
+
+            window.scrollTo(0, this.scrollPos);
+
+            (window.document.querySelector('body') as HTMLElement).style.scrollBehavior = 'smooth';
+            (window.document.querySelector('html') as HTMLElement).style.scrollBehavior = 'smooth';
+        });
+    }
+
+    // terrible workaround for weird firefox scrolling issue on modal close
+    @HostListener('window:scroll', ['$event'])
+    onScroll() {
+        if (!window.pageYOffset) {
+            return;
+        }
+
+        this.scrollPos = window.pageYOffset;
     }
 }
