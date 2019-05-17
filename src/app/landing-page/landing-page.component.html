@@ -1,7 +1,7 @@
 <a name="home"></a>
 <div class="container-fluid h-100" id="page">
     <div class="background-mask"></div>
-    <prf-main-nav></prf-main-nav>
+    <prf-main-nav [selectedTab]="selectedTab"></prf-main-nav>
     <!-- Home -->
     <div class="row main-content home">
         <div class="col-12 my-auto text-center">
@@ -61,6 +61,7 @@
             <div class="col-lg-4 col-12 text-center info-col">
 
                 <span class="about-title-heading">Experience</span> <br />
+                <hr class="about-me-hr">
 
                 <i class="fas fa-briefcase icon-heading"></i> <br />
 
@@ -91,6 +92,8 @@
             <div class="col-lg-4 col-12 text-center info-col">
 
                 <span class="about-title-heading">Knowledge</span><br />
+                <hr class="about-me-hr">
+
                 <i class="fas fa-eye icon-heading"></i><br />
                 <span placement="left" ngbTooltip="★★★★★">Angular2+</span><br />
                 <span placement="left" ngbTooltip="★★★★★">TypeScript</span><br />
@@ -110,6 +113,7 @@
             <div class="col-lg-4 col-12 text-center info-col">
 
                 <span class="about-title-heading">Contact</span><br />
+                <hr class="about-me-hr">
 
                 <i class="fas fa-envelope icon-heading"></i><br />
                 <a href="mailto:mattb103190@gmail.com">mattb103190@gmail.com</a><br />

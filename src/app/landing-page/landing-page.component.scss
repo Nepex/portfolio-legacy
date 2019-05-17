@@ -39,6 +39,13 @@
   font-weight: 600;
 }
 
+.about-me-hr {
+  padding: 0;
+  width: 500px;
+  margin: 30px auto 15px auto;
+  background-color: #c2c2c2;
+}
+
 .info-col {
   padding-top: 35px;
   font-size: 15px;
@@ -123,6 +130,7 @@
   color: #fff;
   font-size: 16px;
   width: 200px;
+  padding-top: 40px;
 }
 
 // .project-content:hover .project-img {
@@ -132,7 +140,22 @@
 .project-content:hover .project-title {
   opacity: 1;
   // cursor: pointer;
+  padding-top: 0px;
+
 }
+
+// .project-content:hover .project-img {
+//   filter: blur(2px);
+//   -webkit-filter: blur(2px);
+//   transition: .5s;
+//   padding: 2px;
+// }
+
+// .project-content:hover .mobile-project-img {
+//   filter: blur(2px);
+//   -webkit-filter: blur(2px);
+//   padding: 2px;
+// }
 
 .project-content:hover .project-title-container {
   opacity: 1;

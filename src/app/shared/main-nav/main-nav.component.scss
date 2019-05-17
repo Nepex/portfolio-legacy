@@ -65,6 +65,9 @@
   .menu-toggle-btn {
     display: none;
   }
+  .active {
+    background-color: #eee;
+  }
 }
 
 @media (min-width: 992px) {
@@ -78,6 +81,10 @@
   .link:hover {
     background-color: #ddd;
   }
+  .active {
+    background-color: #ddd;
+    // animation: shadow-pulse 1s infinite;
+  }
   .nav-container {
     background-color: #eeeeee;
     border-bottom: rgba(0, 0, 0, 0.4);
@@ -85,5 +92,17 @@
   }
   .menu-toggle-btn {
     display: inline;
+  }
+}
+
+@keyframes shadow-pulse {
+  0% {
+    background-color: #eee;
+  }
+  50% {
+    background-color: #ddd;
+  }
+  100% {
+    background-color: #eee;
   }
 }

@@ -19,9 +19,10 @@ import { debounce } from 'lodash';
 
 export class LandingPageComponent implements OnInit {
     scrollPos: number;
+    selectedTab: string;
 
     constructor(private modal: NgbModal) {
-        this.onScroll = debounce(this.onScroll, 100, { leading: false, trailing: true })
+        this.onScroll = debounce(this.onScroll, 50, { leading: false, trailing: true })
     }
 
     ngOnInit() { }
@@ -71,13 +72,23 @@ export class LandingPageComponent implements OnInit {
         });
     }
 
-    // terrible workaround for weird firefox scrolling issue on modal close
     @HostListener('window:scroll', ['$event'])
     onScroll() {
-        if (!window.pageYOffset) {
+        const scrollY = window.pageYOffset
+
+        if (scrollY < 946) {
+            this.selectedTab = 'HOME';
+        } else if (scrollY >= 946 && scrollY < 2000) {
+            this.selectedTab = 'ABOUT_ME';
+        } else if (scrollY >= 2000) {
+            this.selectedTab = 'PROJECTS';
+        }
+
+        // terrible workaround for weird firefox scrolling issue on modal close
+        if (!scrollY) {
             return;
         }
 
-        this.scrollPos = window.pageYOffset;
+        this.scrollPos = scrollY;
     }
 }

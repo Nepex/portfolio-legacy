@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { debounce } from 'lodash';
 
@@ -39,6 +39,7 @@ import { debounce } from 'lodash';
 })
 
 export class MainNavComponent implements OnInit {
+    @Input() selectedTab: string;
     isCollapsed: boolean = true;
     showMenu: boolean = true;
 

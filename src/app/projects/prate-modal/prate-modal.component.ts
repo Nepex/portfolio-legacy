@@ -36,14 +36,14 @@ export class PrateModalComponent implements OnInit {
             caption: 'When a match is found, user is alerted.'
         },
         {
-            src: '../../../assets/images/portfolio-imgs/prate-leftchat.png',
-            thumb: '../../../assets/images/portfolio-imgs/prate-leftchat.png',
-            caption: 'When either person leaves the chat, an alert is issued, and experience is awarded.'
-        },
-        {
             src: '../../../assets/images/portfolio-imgs/prate-chat-lowres.png',
             thumb: '../../../assets/images/portfolio-imgs/prate-chat-lowres.png',
             caption: 'Chatting interface.'
+        },
+        {
+            src: '../../../assets/images/portfolio-imgs/prate-leftchat.png',
+            thumb: '../../../assets/images/portfolio-imgs/prate-leftchat.png',
+            caption: 'When either person leaves the chat, an alert is issued, and experience is awarded.'
         }
     ]
 
