@@ -29,7 +29,9 @@ export class LandingPageComponent implements OnInit {
         // this.onScroll = debounce(this.onScroll, 50, { leading: false, trailing: true });
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+     
+    }
 
     openProjectModal(project) {
         let modalRef;
@@ -63,22 +65,11 @@ export class LandingPageComponent implements OnInit {
                 modalRef = this.modal.open(AirPropModalComponent, { size: 'lg' });
                 break;
         }
-
-        // modalRef.result.then(() => { }, () => {
-        //     // terrible workaround for weird firefox scrolling issue on modal close
-        //     (window.document.querySelector('body') as HTMLElement).style.scrollBehavior = 'auto';
-        //     (window.document.querySelector('html') as HTMLElement).style.scrollBehavior = 'auto';
-
-        //     window.scrollTo(0, this.scrollPos);
-
-        //     (window.document.querySelector('body') as HTMLElement).style.scrollBehavior = 'smooth';
-        //     (window.document.querySelector('html') as HTMLElement).style.scrollBehavior = 'smooth';
-        // });
     }
 
     @HostListener('window:scroll', ['$event'])
     onScroll() {
-        const scrollY = window.pageYOffset
+        // const scrollY = window.pageYOffset
 
         const homeAnchor = this.homeAnchor.nativeElement;
         const homeViewportOffset = homeAnchor.getBoundingClientRect();
@@ -100,12 +91,5 @@ export class LandingPageComponent implements OnInit {
         if (projectsTop <= 0) {
             this.selectedTab = 'PROJECTS';
         }
-
-        // terrible workaround for weird firefox scrolling issue on modal close
-        // if (!scrollY) {
-        //     return;
-        // }
-
-        this.scrollPos = scrollY;
     }
 }
