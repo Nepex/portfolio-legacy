@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { CascadeModalComponent } from '../projects/cascade-modal/cascade-modal.component';
 import { PrateModalComponent } from '../projects/prate-modal/prate-modal.component';
 import { MototraxWebModalComponent } from '../projects/mototrax-web-modal/mototrax-web-modal.component';
@@ -20,11 +20,13 @@ import { debounce } from 'lodash';
 export class LandingPageComponent implements OnInit {
     scrollPos: number;
     selectedTab: string = 'HOME';
-    viewPortInit = false;
+
+    @ViewChild('homeAnchor') homeAnchor: ElementRef;
+    @ViewChild('aboutMeAnchor') aboutMeAnchor: ElementRef;
+    @ViewChild('projectsAnchor') projectsAnchor: ElementRef;
 
     constructor(private modal: NgbModal) {
-        this.onScroll = debounce(this.onScroll, 45, { leading: false, trailing: true });
-        this.sectionInView = debounce(this.sectionInView, 50, { leading: false, trailing: true });
+        // this.onScroll = debounce(this.onScroll, 50, { leading: false, trailing: true });
     }
 
     ngOnInit() { }
@@ -74,39 +76,29 @@ export class LandingPageComponent implements OnInit {
         });
     }
 
-    sectionInView(section) {
-        if (!this.viewPortInit) {
-            return;
-        }
-
-        switch (section) {
-            case 'HOME':
-                this.selectedTab = 'HOME';
-                break;
-            case 'ABOUT_ME':
-                this.selectedTab = 'ABOUT_ME';
-                break;
-            case 'PROJECTS':
-                this.selectedTab = 'PROJECTS';
-                break;
-        }
-    }
-
     @HostListener('window:scroll', ['$event'])
     onScroll() {
         const scrollY = window.pageYOffset
 
-        // set tab on initial page load, then get ready for scroll/viewport events
-        if (!this.viewPortInit) {
-            if (scrollY < 946) {
-                this.selectedTab = 'HOME';
-            } else if (scrollY >= 946 && scrollY < 2000) {
-                this.selectedTab = 'ABOUT_ME';
-            } else if (scrollY >= 2000) {
-                this.selectedTab = 'PROJECTS';
-            }
+        const homeAnchor = this.homeAnchor.nativeElement;
+        const homeViewportOffset = homeAnchor.getBoundingClientRect();
+        const homeTop = homeViewportOffset.top;
+        if (homeTop <= 0) {
+            this.selectedTab = 'HOME';
+        }
 
-            this.viewPortInit = true;
+        const aboutMeAnchor = this.aboutMeAnchor.nativeElement;
+        const aboutMeViewportOffset = aboutMeAnchor.getBoundingClientRect();
+        const aboutMeTop = aboutMeViewportOffset.top;
+        if (aboutMeTop <= 0) {
+            this.selectedTab = 'ABOUT_ME';
+        }
+
+        const projectsAnchor = this.projectsAnchor.nativeElement;
+        const projectsViewportOffset = projectsAnchor.getBoundingClientRect();
+        const projectsTop = projectsViewportOffset.top;
+        if (projectsTop <= 0) {
+            this.selectedTab = 'PROJECTS';
         }
 
         // terrible workaround for weird firefox scrolling issue on modal close

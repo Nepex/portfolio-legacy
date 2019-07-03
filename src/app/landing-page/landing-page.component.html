@@ -1,4 +1,4 @@
-<a name="home" snInViewport (inViewportChange)="sectionInView('HOME')"></a>
+<a name="home" #homeAnchor></a>
 <div class="container-fluid h-100" id="page">
     <div class="background-mask"></div>
     <prf-main-nav [selectedTab]="selectedTab"></prf-main-nav>
@@ -15,7 +15,7 @@
 
     <!-- About Me -->
     <div class="main-content">
-        <a name="about-me" class="about-me" ></a>
+        <a name="about-me" #aboutMeAnchor></a>
         <div class="row about-me-row">
             <div class="col-12 text-center info-col">
                 <div class="about-title-heading">About Me</div>
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-6 offset-lg-3 col-10 offset-1" snInViewport (inViewportChange)="sectionInView('ABOUT_ME')">
+                    <div class="col-lg-6 offset-lg-3 col-10 offset-1">
                         <div class="about-me-section text-left">
                             Hello, my name is Matt. I consider myself a front-end web developer / designer with light
                             to medium experience in back-end development using node, server and database management,
@@ -62,7 +62,6 @@
 
                 <span class="about-title-heading">Experience</span> <br />
                 <hr class="about-me-hr">
-                <div snInViewport (inViewportChange)="sectionInView('ABOUT_ME')"></div>
 
                 <i class="fas fa-briefcase icon-heading"></i> <br />
 
@@ -132,7 +131,7 @@
 
     <!-- Projects -->
     <div class="main-content projects">
-        <a name="projects"></a>
+        <a name="projects" #projectsAnchor></a>
         <div class="row projects-row">
             <div class="col-lg-6 offset-lg-3 text-center">
                 <div class="projects-title-heading">Projects</div>
@@ -284,7 +283,5 @@
 
             </div>
         </div>
-
-        <div snInViewport (inViewportChange)="sectionInView('PROJECTS')"></div>
     </div>
 </div>
