@@ -64,16 +64,16 @@ export class LandingPageComponent implements OnInit {
                 break;
         }
 
-        modalRef.result.then(() => { }, () => {
-            // terrible workaround for weird firefox scrolling issue on modal close
-            (window.document.querySelector('body') as HTMLElement).style.scrollBehavior = 'auto';
-            (window.document.querySelector('html') as HTMLElement).style.scrollBehavior = 'auto';
+        // modalRef.result.then(() => { }, () => {
+        //     // terrible workaround for weird firefox scrolling issue on modal close
+        //     (window.document.querySelector('body') as HTMLElement).style.scrollBehavior = 'auto';
+        //     (window.document.querySelector('html') as HTMLElement).style.scrollBehavior = 'auto';
 
-            window.scrollTo(0, this.scrollPos);
+        //     window.scrollTo(0, this.scrollPos);
 
-            (window.document.querySelector('body') as HTMLElement).style.scrollBehavior = 'smooth';
-            (window.document.querySelector('html') as HTMLElement).style.scrollBehavior = 'smooth';
-        });
+        //     (window.document.querySelector('body') as HTMLElement).style.scrollBehavior = 'smooth';
+        //     (window.document.querySelector('html') as HTMLElement).style.scrollBehavior = 'smooth';
+        // });
     }
 
     @HostListener('window:scroll', ['$event'])
@@ -102,9 +102,9 @@ export class LandingPageComponent implements OnInit {
         }
 
         // terrible workaround for weird firefox scrolling issue on modal close
-        if (!scrollY) {
-            return;
-        }
+        // if (!scrollY) {
+        //     return;
+        // }
 
         this.scrollPos = scrollY;
     }
