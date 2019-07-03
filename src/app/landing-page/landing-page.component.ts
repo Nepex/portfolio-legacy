@@ -19,10 +19,12 @@ import { debounce } from 'lodash';
 
 export class LandingPageComponent implements OnInit {
     scrollPos: number;
-    selectedTab: string;
+    selectedTab: string = 'HOME';
+    viewPortInit = false;
 
     constructor(private modal: NgbModal) {
-        this.onScroll = debounce(this.onScroll, 50, { leading: false, trailing: true })
+        this.onScroll = debounce(this.onScroll, 45, { leading: false, trailing: true });
+        this.sectionInView = debounce(this.sectionInView, 50, { leading: false, trailing: true });
     }
 
     ngOnInit() { }
@@ -72,16 +74,39 @@ export class LandingPageComponent implements OnInit {
         });
     }
 
+    sectionInView(section) {
+        if (!this.viewPortInit) {
+            return;
+        }
+
+        switch (section) {
+            case 'HOME':
+                this.selectedTab = 'HOME';
+                break;
+            case 'ABOUT_ME':
+                this.selectedTab = 'ABOUT_ME';
+                break;
+            case 'PROJECTS':
+                this.selectedTab = 'PROJECTS';
+                break;
+        }
+    }
+
     @HostListener('window:scroll', ['$event'])
     onScroll() {
         const scrollY = window.pageYOffset
 
-        if (scrollY < 946) {
-            this.selectedTab = 'HOME';
-        } else if (scrollY >= 946 && scrollY < 2000) {
-            this.selectedTab = 'ABOUT_ME';
-        } else if (scrollY >= 2000) {
-            this.selectedTab = 'PROJECTS';
+        // set tab on initial page load, then get ready for scroll/viewport events
+        if (!this.viewPortInit) {
+            if (scrollY < 946) {
+                this.selectedTab = 'HOME';
+            } else if (scrollY >= 946 && scrollY < 2000) {
+                this.selectedTab = 'ABOUT_ME';
+            } else if (scrollY >= 2000) {
+                this.selectedTab = 'PROJECTS';
+            }
+
+            this.viewPortInit = true;
         }
 
         // terrible workaround for weird firefox scrolling issue on modal close

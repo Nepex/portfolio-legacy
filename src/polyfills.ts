@@ -57,6 +57,7 @@
  */
 import 'zone.js/dist/zone';  // Included with Angular CLI.
 
+import 'intersection-observer'; // remove this if viewport plugin is ever removed - it's for IE11 support
 
 /***************************************************************************************************
  * APPLICATION IMPORTS
