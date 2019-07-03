@@ -8,7 +8,6 @@ import { ProjectsModule } from './projects/projects.module';
 import { SharedModule } from './shared/shared.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { InViewportModule } from '@thisissoon/angular-inviewport';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import { InViewportModule } from '@thisissoon/angular-inviewport';
     AppRoutingModule,
     ProjectsModule,
     SharedModule,
-    NgbModule,
-    InViewportModule
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
