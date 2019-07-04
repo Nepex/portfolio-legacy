@@ -33,6 +33,18 @@
   background-color: rgba(255, 255, 255, 0.95) !important;
 }
 
+.outer {
+  height: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 /** ABOUT ME */
 .about-title-heading {
   font-size: 25px;
