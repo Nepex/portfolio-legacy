@@ -72,7 +72,7 @@ export class MototraxWebModalComponent implements OnInit {
     ngOnInit() { }
 
     open(index: number): void {
-        this.lightbox.open(this.images, index, { centerVertically: true });
+        this.lightbox.open(this.images, index, { centerVertically: true, fadeDuration: 0 });
     }
 
     close(): void {

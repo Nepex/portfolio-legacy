@@ -30,7 +30,7 @@ export class LandingPageComponent implements OnInit {
     }
 
     ngOnInit() {
-     
+
     }
 
     openProjectModal(project) {

@@ -23,7 +23,7 @@
 }
 
 .description {
-  border-left:3px solid #dddddd;
+  border-left: 3px solid #dddddd;
   padding-left: 10px;
 }
 
@@ -133,6 +133,32 @@
   overflow: visible;
 }
 
+::ng-deep .lb-outerContainer {
+  border-radius: 0px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+::ng-deep .lb-dataContainer {
+  position: absolute;
+  top: 5px;
+}
+
+::ng-deep .lb-closeContainer {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+}
+
+::ng-deep .lb-details {
+  display: none !important;
+}
+
+::ng-deep .lightboxOverlay {
+  // background-color: rgba(0,0,0,.5);
+}
 
 @media (min-width: 344px) {
   ::ng-deep .modal {
