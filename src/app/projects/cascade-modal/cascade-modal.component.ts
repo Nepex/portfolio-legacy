@@ -20,11 +20,11 @@ export class CascadeModalComponent implements OnInit {
             thumb: '../../../assets/images/portfolio-imgs/cascade-party.png',
             caption: 'Party management, where a user would manage spells, equipment, and stats.'
         },
-        {
-            src: '../../../assets/images/portfolio-imgs/cascade-scene.png',
-            thumb: '../../../assets/images/portfolio-imgs/cascade-scene.png',
-            caption: 'A dialogue scene which progresses conversation and decision making for the user.'
-        },
+        // {
+        //     src: '../../../assets/images/portfolio-imgs/cascade-scene.png',
+        //     thumb: '../../../assets/images/portfolio-imgs/cascade-scene.png',
+        //     caption: 'A dialogue scene which progresses conversation and decision making for the user.'
+        // },
         {
             src: '../../../assets/images/portfolio-imgs/cascade-travel.png',
             thumb: '../../../assets/images/portfolio-imgs/cascade-travel.png',

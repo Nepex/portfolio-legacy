@@ -89,6 +89,7 @@ export class LandingPageComponent implements OnInit {
         const projectsViewportOffset = projectsAnchor.getBoundingClientRect();
         const projectsTop = projectsViewportOffset.top;
         if (projectsTop <= 0) {
+            console.log('here');
             this.selectedTab = 'PROJECTS';
         }
     }
