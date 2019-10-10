@@ -24,13 +24,23 @@
 }
 
 .background-mask {
-  z-index: 0;
+  // z-index: 0;
+  // position: fixed;
+  // width: 100%;
+  // height: 100%;
+  // top: 0;
+  // left: 0;
+  // background-color: rgba(255, 255, 255, 0.95) !important;
+
+
   position: fixed;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(255, 255, 255, 0.95) !important;
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://backgrounddownload.com/wp-content/uploads/2018/09/web-agency-background.jpg");
+  background-size: cover;
+  z-index: -1;
 }
 
 .outer {
@@ -46,8 +56,18 @@
 }
 
 /** ABOUT ME */
+.link-anchor {
+  // -webkit-padding-before: 0px;
+  position: absolute;
+}
+
 .about-title-heading {
-  font-size: 25px;
+  font-size: 20px;
+  font-weight: 350;
+}
+
+.about-main-title-heading {
+  font-size: 20px;
   font-weight: 400;
 }
 
@@ -60,15 +80,16 @@
 
 .info-col {
   padding-top: 35px;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 30px;
 }
 
 .info-row {
-  border-top: rgba(0, 0, 0, 0.4);
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+  // border-top: rgba(0, 0, 0, 0.4);
+  // box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
   padding-bottom: 35px;
-  background-color: #eee;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 50px;
 }
 
 .icon-heading {
@@ -91,12 +112,12 @@
 
 /** PROJECTS */
 .projects-title-heading {
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 400;
 }
 
 .projects {
-  height: 100%;
+  min-height: 100%;
 }
 
 .project-col {
@@ -107,11 +128,13 @@
 .project-img {
   height: 200px;
   width: 280px;
+  opacity: 0.7;
 }
 
 .mobile-project-img {
   height: 200px;
   width: 140px;
+  opacity: 0.7;
 }
 
 .project-content {
@@ -153,7 +176,6 @@
   opacity: 1;
   // cursor: pointer;
   padding-top: 0px;
-
 }
 
 // .project-content:hover .project-img {
@@ -179,17 +201,99 @@
   border-radius: 20px;
   color: #ffffff;
   background: transparent;
-  border: 1px solid #00aff0;
+  // border: 1px solid #00aff0;
+  border: 1px solid #000000;
   cursor: pointer;
 }
 
-
 .project-btn:hover {
-  background-color: #00aff0;
+  // background-color: #00aff0;
+  background-color: rgba(0, 0, 0, 0.5);
   font-weight: 600;
 }
 
+/* Contact */
+.contact {
+  height: 100%;
+}
+
+.contact-title-heading {
+  font-size: 19px;
+  font-weight: 400;
+  padding-bottom: 20px;
+}
+
+.contact-col {
+  padding-top: 15px;
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.contact-row {
+  // border-top: rgba(0, 0, 0, 0.4);
+  // box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+  padding-bottom: 35px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 50px;
+}
+
+.text-input {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0px;
+  border: 1px solid #000000;
+  height: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #bbbbbb;
+}
+
+.text-area {
+  resize: none;
+  height: 200px;
+  font-weight: 500;
+  padding-top: 12px;
+}
+
+.char-left-msg {
+  text-align: right;
+  padding-right: 15px;
+}
+
+.submit-btn {
+  margin: 0px 0px 0px 0px;
+  padding: 5px 20px 5px 20px;
+  font-weight: 600;
+  font-size: 15px;
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+
+  transition: .25s;
+}
+
+.submit-btn:hover {
+  background-color: rgba(0,0,0,0.4);
+  color: #ffffff;
+  transition: .25s;
+}
+
+.message-form-alerts {
+  padding-bottom: 3px;
+}
+
+.footer-msg {
+  z-index: 2;
+  font-size: 11px;
+  position: relative;
+  bottom: 20px;
+  color: #bbbbbb;
+}
+
 @media (min-width: 344px) {
+  .contact-title-heading {
+    padding-top: 35px;
+  }
+
   .projects-title-heading {
     padding-top: 35px;
   }
@@ -224,12 +328,16 @@
     width: 100%;
   }
 
-  .projects-title-heading  {
+  .contact-title-heading {
+    padding-top: 77px;
+  }
+
+  .projects-title-heading {
     padding-top: 77px;
   }
 
   .about-me-row {
-    padding-top: 35px;
+    // padding-top: 35px; //35 (old)
   }
 
   .mobile-project-img {
@@ -245,4 +353,89 @@
     transform: none;
     -ms-transform: none;
   }
+}
+
+// Home Down Arrow
+.page-scroll .btn-circle i.animated {
+  -webkit-transition-property: -webkit-transform;
+  -webkit-transition-duration: 1s;
+  -moz-transition-property: -moz-transform;
+  -moz-transition-duration: 1s;
+  -webkit-animation-name: pulse;
+  -moz-animation-name: pulse;
+  -webkit-animation-duration: 1.5s;
+  -moz-animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+}
+
+.page-scroll .btn-circle:hover i.animated {
+  -webkit-animation-name: pulse;
+  -moz-animation-name: pulse;
+  -webkit-animation-duration: 1.5s;
+  -moz-animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-moz-keyframes pulse {
+  0% {
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.btn-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 60px;
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.6);
+  -webkit-transition: background 0.4s ease-in-out;
+  -moz-transition: background 0.4s ease-in-out;
+  transition: background 0.4s ease-in-out;
+
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.btn-circle:hover,
+.btn-circle:focus {
+  outline: 0;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
 }

@@ -10,51 +10,59 @@
                 <hr class="name-hr">
                 <div class="title-heading">web dev - programmer</div>
             </div>
+
+            <div class="page-scroll text-center" [@showHide]="showArrow ? 'show' : 'hide'">
+                <a href="#about-me" class="btn btn-circle">
+                    <i class="fa fa-angle-down fa-2x animated"></i>
+                </a>
+            </div>
         </div>
     </div>
 
     <!-- About Me -->
     <div class="main-content">
-        <a name="about-me" #aboutMeAnchor></a>
-        <div class="row about-me-row">
+        <a name="about-me" #aboutMeAnchor class="link-anchor"></a>
+
+        <!-- <div class="row about-me-row">
+
+        </div> -->
+        <div class="row info-row">
             <div class="col-12 text-center info-col">
-                <div class="about-title-heading">About Me</div>
 
                 <div class="row">
                     <div class="col-lg-2 offset-lg-5 col-10 offset-1 text-center">
-                        <img src="../../assets/images/conker.jpg" class="personal-img" />
+                        <img src="https://clipart.info/images/ccovers/1496175228emoji-android-rice-ball.png"
+                            class="personal-img" />
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-6 offset-lg-3 col-10 offset-1">
                         <div class="about-me-section text-left">
-                            I consider myself a front-end web developer / programmer. Primarily working with javascript
-                            frameworks to create web applications.<br /><br />
+                            <p>I am a front-end web developer / programmer. Primarily working with
+                                javascript
+                                frameworks to create web applications.</p>
 
-                            I have over three years of on-site job experience
-                            as a programmer and web developer, as well as a year of freelance web development along side
-                            several years of self-learning. I enjoy
-                            working with front-end web applications
-                            and mobile applications. I'm
-                            also familiar with unit testing. I like to design sites that have
-                            a smooth user experience with both mobile and
-                            desktop environments
-                            kept in mind.
+                            <p>I have over three years of on-site job experience
+                                as a programmer and web developer, as well as a year of freelancing along side
+                                several years of self-learning. I enjoy
+                                working with web
+                                and mobile applications. I like to design sites that have
+                                a smooth user experience with both mobile and
+                                desktop environments
+                                kept in mind.</p>
 
                             <!-- <br /><br /> -->
 
                             <!-- During my spare time I enjoy indulging in video games, writing/producing music, or just
-                            writing code for web pages
-                            or applications that I find interesting. I'm always looking for new projects to contribute
-                            to
-                            and am a timely and compliant learner. So feel free to contact me about anything! -->
+                                    writing code for web pages
+                                    or applications that I find interesting. I'm always looking for new projects to contribute
+                                    to
+                                    and am a timely and compliant learner. So feel free to contact me about anything! -->
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row info-row">
             <div class="col-lg-4 col-12 text-center info-col">
 
                 <span class="about-title-heading">Experience</span> <br />
@@ -119,8 +127,10 @@
                 <a href="tel:13347969971">1-334-796-9971</a><br /> -->
 
                 <i class="fab fa-github icon-heading"></i><br />
-                <a href="https://www.github.com/nepex" target="_blank">Nepex</a> <br />
-                <a href="https://www.github.com/mattb103190" target="_blank">mattb103190</a>
+                <a href="https://www.github.com/nepex" target="_blank"><span placement="left"
+                        ngbTooltip="Personal account">Nepex</span></a> <br />
+                <a href="https://www.github.com/mattb103190" target="_blank"><span placement="left"
+                        ngbTooltip="Work account">mattb103190</span></a>
 
             </div>
         </div>
@@ -128,28 +138,13 @@
 
     <!-- Projects -->
     <div class="main-content projects">
-        <a name="projects" #projectsAnchor></a>
+        <a name="projects" #projectsAnchor class="link-anchor"></a>
         <div class="row projects-row">
             <div class="col-lg-6 offset-lg-3 text-center">
                 <div class="projects-title-heading">Projects</div>
 
-                <div class="row projects-row">
-                    <div class="col-lg-4 col-12 project-col">
+                <div class="row projects-row" style="padding-bottom: 35px;">
 
-                        <div class="project-content">
-                            <img src="../../../assets//images/portfolio-imgs/cascade-travel.png" class="project-img" />
-
-                            <div class="project-title-container">
-                                <div class="project-title">
-                                    <strong>Cascade</strong><br />
-                                    Browser Game
-                                    <button class="btn project-btn" (click)="openProjectModal('cascade');">View
-                                        Project</button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
                     <div class="col-lg-4 col-12 project-col">
                         <div class="project-content">
                             <img src="../../../assets//images/portfolio-imgs/prate-chat-lowres.png"
@@ -159,8 +154,9 @@
                                 <div class="project-title">
                                     <strong>Prate</strong><br />
                                     Chat Matcher
-                                    <button class="btn project-btn" (click)="openProjectModal('prate')">View
-                                        Project</button>
+                                    <button class="btn project-btn" (click)="openProjectModal('prate')"><i
+                                            class="fas fa-arrow-alt-circle-right"></i> &nbsp;View
+                                        Details</button>
                                 </div>
                             </div>
                         </div>
@@ -175,8 +171,9 @@
                                 <div class="project-title">
                                     <strong>MotoTrax</strong><br />
                                     Vehicle Manager
-                                    <button class="btn project-btn" (click)="openProjectModal('mototrax-web')">View
-                                        Project</button>
+                                    <button class="btn project-btn" (click)="openProjectModal('mototrax-web')"><i
+                                            class="fas fa-arrow-alt-circle-right"></i> &nbsp;View
+                                        Details</button>
                                 </div>
                             </div>
                         </div>
@@ -193,8 +190,9 @@
                                 <div class="project-title">
                                     <strong>MotoTrax Mobile</strong><br />
                                     Vehicle Manager
-                                    <button class="btn project-btn" (click)="openProjectModal('mototrax-mobile')">View
-                                        Project</button>
+                                    <button class="btn project-btn" (click)="openProjectModal('mototrax-mobile')"><i
+                                            class="fas fa-arrow-alt-circle-right"></i> &nbsp;View
+                                        Details</button>
                                 </div>
                             </div>
                         </div>
@@ -232,6 +230,22 @@
 
                     <div class="col-lg-4 col-12 project-col">
                         <div class="project-content">
+                            <img src="../../../assets//images/portfolio-imgs/cascade-travel.png" class="project-img" />
+
+                            <div class="project-title-container">
+                                <div class="project-title">
+                                    <strong>Cascade</strong><br />
+                                    Browser Game
+                                    <button class="btn project-btn" (click)="openProjectModal('cascade');"><i
+                                            class="fas fa-arrow-alt-circle-right"></i> &nbsp;View
+                                        Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-12 project-col">
+                        <div class="project-content">
                             <img src="../../../assets//images/portfolio-imgs/pi-homescreen-lowres.png"
                                 class="project-img" />
 
@@ -239,8 +253,9 @@
                                 <div class="project-title">
                                     <strong>PI Homescreen</strong><br />
                                     Home Page<br />
-                                    <button class="btn project-btn" (click)="openProjectModal('pihomescreen')">View
-                                        Project</button>
+                                    <button class="btn project-btn" (click)="openProjectModal('pihomescreen')"><i
+                                            class="fas fa-arrow-alt-circle-right"></i> &nbsp;View
+                                        Details</button>
                                 </div>
                             </div>
                         </div>
@@ -254,8 +269,9 @@
                                 <div class="project-title">
                                     <strong>GlobalStar Aerospace</strong><br />
                                     Aviation Website
-                                    <button class="btn project-btn" (click)="openProjectModal('globalstar')">View
-                                        Project</button>
+                                    <button class="btn project-btn" (click)="openProjectModal('globalstar')"><i
+                                            class="fas fa-arrow-alt-circle-right"></i> &nbsp;View
+                                        Details</button>
                                 </div>
                             </div>
                         </div>
@@ -281,4 +297,55 @@
             </div>
         </div>
     </div>
+
+    <!-- Contact -->
+    <div class="main-content h-100">
+        <a name="contact" #contactAnchor class="link-anchor"></a>
+
+        <div class="row contact-row contact">
+            <div class="col-12 text-center about-col outer">
+                <div class="contact-title-heading">Send a Message</div>
+
+                <div class="message-form-alerts" *ngFor="let m of messageFormMessages">{{m}}</div>
+
+                <form (ngSubmit)="sendMessage()" [formGroup]="messageForm" novalidate>
+                    <div class="form-group position-relative">
+                        <prt-form-validation-msgs [control]="messageForm.controls.email"
+                            [submitted]="messageForm.submitted">
+                        </prt-form-validation-msgs>
+                        <div class="col-12">
+                            <div class="input-group">
+                                <input type="text" class="form-control text-input" formControlName="email" name="email"
+                                    id="email" spellcheck="false" autocomplete="off" placeholder="Enter your email" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group position-relative">
+                        <prt-form-validation-msgs [control]="messageForm.controls.message"
+                            [submitted]="messageForm.submitted">
+                        </prt-form-validation-msgs>
+                        <div class="col-12">
+                            <div class="input-group">
+                                <textarea rows="40" cols="50" class="form-control text-input text-area"
+                                    formControlName="message" placeholder="Message (250 Char Limit)"> </textarea>
+                            </div>
+                        </div>
+                        <div class="char-left-msg">{{ messageLeftLength }} <span
+                                *ngIf="messageLeftLength > 0">characters left</span></div>
+
+                    </div>
+
+
+                    <div class="form-group text-center">
+                        <input type="submit" value="SEND" class="submit-btn cursor-pointer" />
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- <div class="footer-msg text-center">Layout and design by me</div> -->
+
 </div>

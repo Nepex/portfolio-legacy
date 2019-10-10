@@ -10,23 +10,71 @@ import { GlobalstarModalComponent } from '../projects/globalstar-modal/globalsta
 import { AirPropModalComponent } from '../projects/airprop-modal/airprop-modal.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { debounce } from 'lodash';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+import { FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
+import { Observable } from 'rxjs';
+
+import emailjs from 'emailjs-com';
 
 @Component({
     selector: 'prf-landing-page',
     templateUrl: 'landing-page.component.html',
-    styleUrls: ['./landing-page.component.scss']
+    styleUrls: ['./landing-page.component.scss'],
+    animations: [
+        trigger('showHide', [
+            state('show', style({
+                opacity: 1
+            })),
+            state('hide', style({
+                opacity: 0
+            })),
+            transition('show => hide', [
+                animate('.2s')
+            ]),
+            transition('hide => show', [
+                animate('2s')
+            ]),
+        ]),
+    ]
 })
 
 export class LandingPageComponent implements OnInit {
     scrollPos: number;
     selectedTab: string = 'HOME';
+    showArrow: boolean = true;
+    emailRegex = /^[^@]+@[^@]+\.[^@]+$/;
+    messageForm: FormGroup = new FormGroup({
+        email: new FormControl('', [Validators.required, Validators.maxLength(60), Validators.pattern(this.emailRegex)]),
+        message: new FormControl('', [Validators.required, Validators.maxLength(250), Validators.minLength(5)]),
+    });
+
+    loadingRequest: Observable<any>;
+    messageFormMessages = [];
+    messageLeftLength;
 
     @ViewChild('homeAnchor') homeAnchor: ElementRef;
     @ViewChild('aboutMeAnchor') aboutMeAnchor: ElementRef;
     @ViewChild('projectsAnchor') projectsAnchor: ElementRef;
+    @ViewChild('contactAnchor') contactAnchor: ElementRef;
+
 
     constructor(private modal: NgbModal) {
         // this.onScroll = debounce(this.onScroll, 50, { leading: false, trailing: true });
+
+        this.messageForm.controls['message'].valueChanges.subscribe((v) => {
+            console.log(v);
+            if (!v) {
+                this.messageLeftLength = null;
+
+                return;
+            }
+
+            this.messageLeftLength = 250 - v.length;
+
+            if (this.messageLeftLength < 0) {
+                this.messageLeftLength = 'Limit exceeded';
+            }
+        });
     }
 
     ngOnInit() {
@@ -76,6 +124,7 @@ export class LandingPageComponent implements OnInit {
         const homeTop = homeViewportOffset.top;
         if (homeTop <= 0) {
             this.selectedTab = 'HOME';
+            this.showArrow = true;
         }
 
         const aboutMeAnchor = this.aboutMeAnchor.nativeElement;
@@ -83,14 +132,61 @@ export class LandingPageComponent implements OnInit {
         const aboutMeTop = aboutMeViewportOffset.top;
         if (aboutMeTop <= 0) {
             this.selectedTab = 'ABOUT_ME';
+            this.showArrow = false;
         }
 
         const projectsAnchor = this.projectsAnchor.nativeElement;
         const projectsViewportOffset = projectsAnchor.getBoundingClientRect();
         const projectsTop = projectsViewportOffset.top;
         if (projectsTop <= 0) {
-            console.log('here');
             this.selectedTab = 'PROJECTS';
+            this.showArrow = false;
         }
+
+        const contactAnchor = this.contactAnchor.nativeElement;
+        const contactViewportOffset = contactAnchor.getBoundingClientRect();
+        const contactTop = contactViewportOffset.top;
+        if (contactTop <= 0) {
+            this.selectedTab = 'CONTACT';
+            this.showArrow = false;
+        }
+    }
+
+    sendMessage() {
+        this.messageFormMessages = [];
+        this.messageForm['submitted'] = true;
+
+        if (!this.messageForm.valid) {
+            return;
+        }
+
+        const body = {
+            reply_to: this.messageForm.value.email,
+            from_name: this.messageForm.value.email,
+            to_name: 'mattb103190@gmail.com',
+            message_html: this.messageForm.value.message
+        };
+
+        var serviceId = 'gmail';
+        var templateId = 'template_Q1G6AEQ1';
+        var userId = 'user_5g3SDUEDB23GcN9UDqcFG';
+
+        emailjs.send(serviceId, templateId, body, userId)
+            .then((response) => {
+                this.messageForm['submitted'] = false;
+
+                this.messageFormMessages.push('Message sent!');
+
+                console.log('SUCCESS!', response.status, response.text);
+
+                this.messageForm.reset();
+
+            }, (err) => {
+                this.messageForm['submitted'] = false;
+
+                this.messageFormMessages.push('Failed to send message');
+
+                console.log('FAILED...', err);
+            });
     }
 }

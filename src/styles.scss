@@ -7,13 +7,20 @@ body {
   width: 100%;
   font-family: "Lato", sans-serif;
   font-size: 14px;
-  color: #666666;
+  color: #bbbbbb;
 
-  background-image: url("https://ak6.picdn.net/shutterstock/videos/9444866/thumb/10.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  //https://ak6.picdn.net/shutterstock/videos/9444866/thumb/10.jpg
+  // background-image: url("https://backgrounddownload.com/wp-content/uploads/2018/09/web-agency-background.jpg");
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-attachment: fixed;
   scroll-behavior: smooth;
+}
+
+textarea, select, input, button { box-shadow:none !important;  }
+
+textarea:focus, input:focus {
+  outline: 1px solid #bbbbbb !important;
 }
 
 .no-pad-margin {
@@ -36,11 +43,38 @@ body {
 
 a {
   text-decoration: underline;
-  color: #666;
+  color: #bbbbbb;
 }
 
 a:hover {
   color: rgb(131, 131, 131);
   text-decoration: none;
-  transition: .5s;
+  transition: 0.5s;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.1); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: rgba(255, 255, 255, 0.1); /* Gecko Browsers */
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000; // f1f1f1
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #555; // 888
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #888; // 555
 }

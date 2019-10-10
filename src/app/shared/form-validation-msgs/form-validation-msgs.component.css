@@ -1,0 +1,16 @@
+.form-control-feedback {
+    font-size: 22px;
+    color: rgb(97, 0, 0);
+}
+
+.checkmark {
+    font-size: 22px;
+    color: rgb(0, 97, 5);
+}
+
+.checkmark, .form-control-feedback  {
+    position: absolute;
+    z-index: 50;
+    right: 30px;
+    top: 8px;
+}
