@@ -91,11 +91,11 @@
 
 .close-btn-container {
   background-color: #000000;
-  border-radius: 20px;
+  // border-radius: 20px;
   color: #ffffff;
   position: absolute;
-  right: 15px;
-  top: 15px;
+  right: 1px;
+  top: 1px;
   font-size: 15px;
   height: 22px;
   width: 22px;
@@ -104,12 +104,12 @@
 .close-btn {
   position: relative;
   top: 0px;
-  left: 0.5px;
+  left: 0px;
 }
 
 .close-btn-container:hover {
   transition: 0.5s;
-  background-color: #3d3d3d;
+  background-color: rgb(97, 0, 0);
 }
 
 .project-title {

@@ -32,7 +32,6 @@
   // left: 0;
   // background-color: rgba(255, 255, 255, 0.95) !important;
 
-
   position: fixed;
   top: 0;
   left: 0;
@@ -40,7 +39,7 @@
   height: 100vh;
   background-image: url("https://backgrounddownload.com/wp-content/uploads/2018/09/web-agency-background.jpg");
   background-size: cover;
-  z-index: -1;
+  z-index: -2;
 }
 
 .outer {
@@ -233,7 +232,7 @@
   // border-top: rgba(0, 0, 0, 0.4);
   // box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
   padding-bottom: 35px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
   padding-top: 50px;
 }
 
@@ -268,13 +267,13 @@
   color: #000000;
   border: 1px solid #000000;
 
-  transition: .25s;
+  transition: 0.25s;
 }
 
 .submit-btn:hover {
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
   color: #ffffff;
-  transition: .25s;
+  transition: 0.25s;
 }
 
 .message-form-alerts {
@@ -282,12 +281,28 @@
 }
 
 .footer-msg {
+  padding: 0;
+  margin: 0;
   z-index: 2;
-  font-size: 11px;
+  font-size: 12px;
   position: relative;
-  bottom: 20px;
+  bottom: 2px;
+  left: 0px;
   color: #bbbbbb;
+  width:  100%;
+  // background-color: #000000;
 }
+
+.resume-link {
+  color: #00aff0;
+  text-decoration: none;
+}
+
+// .resume-link:hover {
+//   color: #ffffff;
+//   text-decoration: none;
+// }
+
 
 @media (min-width: 344px) {
   .contact-title-heading {
@@ -380,6 +395,11 @@
   -moz-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
   -moz-animation-timing-function: linear;
+}
+
+a:focus {
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 @-webkit-keyframes pulse {

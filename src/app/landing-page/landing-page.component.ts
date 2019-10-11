@@ -16,6 +16,11 @@ import { Observable } from 'rxjs';
 
 import emailjs from 'emailjs-com';
 
+class SubmittableFormGroup extends FormGroup {
+    /** Boolean - if form has been submitted */
+    public submitted = false;
+}
+
 @Component({
     selector: 'prf-landing-page',
     templateUrl: 'landing-page.component.html',
@@ -43,7 +48,7 @@ export class LandingPageComponent implements OnInit {
     selectedTab: string = 'HOME';
     showArrow: boolean = true;
     emailRegex = /^[^@]+@[^@]+\.[^@]+$/;
-    messageForm: FormGroup = new FormGroup({
+    messageForm: SubmittableFormGroup = new SubmittableFormGroup({
         email: new FormControl('', [Validators.required, Validators.maxLength(60), Validators.pattern(this.emailRegex)]),
         message: new FormControl('', [Validators.required, Validators.maxLength(250), Validators.minLength(5)]),
     });
@@ -62,7 +67,6 @@ export class LandingPageComponent implements OnInit {
         // this.onScroll = debounce(this.onScroll, 50, { leading: false, trailing: true });
 
         this.messageForm.controls['message'].valueChanges.subscribe((v) => {
-            console.log(v);
             if (!v) {
                 this.messageLeftLength = null;
 

@@ -23,6 +23,11 @@
   color: #999999;
 }
 
+.link:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
 .navbar-toggler {
   color: #ddd;
   position: relative;
