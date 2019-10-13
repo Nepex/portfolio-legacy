@@ -1,5 +1,10 @@
 .home {
   height: 100%;
+  // width: 100%;
+  // background-image: url("https://backgrounddownload.com/wp-content/uploads/2018/09/web-agency-background.jpg");
+  // background-size: cover;
+  // position: absolute;
+  // z-index: 2;
 }
 
 .name-title-container {
@@ -212,9 +217,9 @@
 }
 
 /* Contact */
-.contact {
-  height: 100%;
-}
+// .contact {
+//   height: 100%;
+// }
 
 .contact-title-heading {
   font-size: 19px;
@@ -285,7 +290,7 @@
   margin: 0;
   z-index: 2;
   font-size: 12px;
-  position: relative;
+  position: absolute;
   bottom: 2px;
   left: 0px;
   color: #bbbbbb;
@@ -305,6 +310,14 @@
 
 
 @media (min-width: 344px) {
+  .footer-msg {
+    visibility: hidden;
+  }
+
+  .contact {
+    min-height: 110%;
+  }
+
   .contact-title-heading {
     padding-top: 35px;
   }
@@ -338,6 +351,15 @@
 }
 
 @media (min-width: 992px) {
+  .footer-msg {
+    visibility: visible;
+  }
+
+  .contact {
+    height: 100%;
+    min-height: 0%;
+  }
+
   .project-img {
     height: 100%;
     width: 100%;

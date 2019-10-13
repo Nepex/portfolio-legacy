@@ -3,7 +3,8 @@
     <div class="background-mask"></div>
     <prf-main-nav [selectedTab]="selectedTab"></prf-main-nav>
     <!-- Home -->
-    <div class="row main-content home text-center">
+    <div class="row main-content home text-center" [@showHideMainPage]="showHideMain ? 'show' : 'hide'"
+    [@createDestroy]="showHideMain ? 'create' : 'destroy'">
         <div class="col-12 outer text-center">
             <div class="name-title-container">
                 <div class="name-heading">Matt Bacon</div>
@@ -11,7 +12,7 @@
                 <div class="title-heading">web dev - programmer</div>
             </div>
 
-            <div class="page-scroll text-center" [@showHide]="showArrow ? 'show' : 'hide'">
+            <div class="page-scroll text-center" [@showHide]="showArrow ? 'show' : 'hide'" (click)="hideMainPage()">
                 <a href="#about-me" class="btn btn-circle">
                     <i class="fa fa-angle-down fa-2x animated"></i>
                 </a>
