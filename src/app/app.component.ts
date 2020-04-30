@@ -44,6 +44,10 @@ export class AppComponent implements OnDestroy {
     this.routerSub.unsubscribe();
   }
 
+//   onActivate(event) {
+//     this.router.navigateByUrl('/');
+// }
+
   private _navigationInterceptor(event: Event): void {
 
     if (event instanceof NavigationEnd || event instanceof NavigationCancel) {

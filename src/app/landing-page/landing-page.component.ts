@@ -26,18 +26,32 @@ class SubmittableFormGroup extends FormGroup {
     templateUrl: 'landing-page.component.html',
     styleUrls: ['./landing-page.component.scss'],
     animations: [
-        trigger('showHide', [
+        trigger('showHideMainPage', [
             state('show', style({
-                opacity: 1
+                top: '0px'
             })),
             state('hide', style({
-                opacity: 0
+                top: '-100%'
             })),
             transition('show => hide', [
-                animate('.2s')
+                animate('.25s')
             ]),
             transition('hide => show', [
-                animate('2s')
+                animate('.25s')
+            ]),
+        ]),
+        trigger('createDestroy', [
+            state('create', style({
+                display: 'block'
+            })),
+            state('destroy', style({
+                display: 'none'
+            })),
+            transition('create => destroy', [
+                animate('.25s')
+            ]),
+            transition('destroy => create', [
+                animate('.0s')
             ]),
         ]),
     ]
@@ -46,7 +60,8 @@ class SubmittableFormGroup extends FormGroup {
 export class LandingPageComponent implements OnInit {
     scrollPos: number;
     selectedTab: string = 'HOME';
-    showArrow: boolean = true;
+    showHideMain: boolean = true;
+    firstLoad: boolean = true;
     emailRegex = /^[^@]+@[^@]+\.[^@]+$/;
     messageForm: SubmittableFormGroup = new SubmittableFormGroup({
         email: new FormControl('', [Validators.required, Validators.maxLength(60), Validators.pattern(this.emailRegex)]),
@@ -65,7 +80,9 @@ export class LandingPageComponent implements OnInit {
 
     constructor(private modal: NgbModal) {
         // this.onScroll = debounce(this.onScroll, 50, { leading: false, trailing: true });
+        this.selectedTab = 'ABOUT_ME';
 
+        // Track characters on message
         this.messageForm.controls['message'].valueChanges.subscribe((v) => {
             if (!v) {
                 this.messageLeftLength = null;
@@ -81,8 +98,10 @@ export class LandingPageComponent implements OnInit {
         });
     }
 
-    ngOnInit() {
+    ngOnInit() {}
 
+    hideMainPage() {
+        this.showHideMain = false;
     }
 
     openProjectModal(project) {
@@ -119,24 +138,34 @@ export class LandingPageComponent implements OnInit {
         }
     }
 
+
     @HostListener('window:scroll', ['$event'])
     onScroll() {
         // const scrollY = window.pageYOffset
 
-        const homeAnchor = this.homeAnchor.nativeElement;
-        const homeViewportOffset = homeAnchor.getBoundingClientRect();
-        const homeTop = homeViewportOffset.top;
-        if (homeTop <= 0) {
-            this.selectedTab = 'HOME';
-            this.showArrow = true;
-        }
+        // const homeAnchor = this.homeAnchor.nativeElement;
+        // const homeViewportOffset = homeAnchor.getBoundingClientRect();
+        // const homeTop = homeViewportOffset.top;
+        // if (homeTop <= 0) {
+        //     this.selectedTab = 'HOME';
+        //     this.showArrow = true;
+        //     this.showHideMain = true;
+        // }
 
         const aboutMeAnchor = this.aboutMeAnchor.nativeElement;
         const aboutMeViewportOffset = aboutMeAnchor.getBoundingClientRect();
         const aboutMeTop = aboutMeViewportOffset.top;
-        if (aboutMeTop <= 0) {
+        if (aboutMeTop <= -1) {
+            // workaround to get intro page to show on every load
+            if (this.firstLoad) {
+                this.firstLoad = false;
+            } else {
+                this.showHideMain = false;
+            }
+        }
+
+        if (aboutMeTop === 0) {
             this.selectedTab = 'ABOUT_ME';
-            this.showArrow = false;
         }
 
         const projectsAnchor = this.projectsAnchor.nativeElement;
@@ -144,7 +173,6 @@ export class LandingPageComponent implements OnInit {
         const projectsTop = projectsViewportOffset.top;
         if (projectsTop <= 0) {
             this.selectedTab = 'PROJECTS';
-            this.showArrow = false;
         }
 
         const contactAnchor = this.contactAnchor.nativeElement;
@@ -152,7 +180,6 @@ export class LandingPageComponent implements OnInit {
         const contactTop = contactViewportOffset.top;
         if (contactTop <= 0) {
             this.selectedTab = 'CONTACT';
-            this.showArrow = false;
         }
     }
 
@@ -181,16 +208,12 @@ export class LandingPageComponent implements OnInit {
 
                 this.messageFormMessages.push('Message sent!');
 
-                console.log('SUCCESS!', response.status, response.text);
-
                 this.messageForm.reset();
 
             }, (err) => {
                 this.messageForm['submitted'] = false;
 
                 this.messageFormMessages.push('Failed to send message');
-
-                console.log('FAILED...', err);
             });
     }
 }

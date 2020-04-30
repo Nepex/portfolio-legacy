@@ -1,10 +1,10 @@
 .home {
   height: 100%;
-  // width: 100%;
-  // background-image: url("https://backgrounddownload.com/wp-content/uploads/2018/09/web-agency-background.jpg");
-  // background-size: cover;
-  // position: absolute;
-  // z-index: 2;
+  width: 100%;
+  background-image: url("https://backgrounddownload.com/wp-content/uploads/2018/09/web-agency-background.jpg");
+  background-size: cover;
+  position: absolute;
+  z-index: 5;
 }
 
 .name-title-container {
@@ -109,6 +109,7 @@
 
 .personal-img {
   margin-top: 25px;
+  margin-bottom: 25px;
   border-radius: 150px;
   height: 100px;
   width: 100px;

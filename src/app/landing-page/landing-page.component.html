@@ -4,7 +4,7 @@
     <prf-main-nav [selectedTab]="selectedTab"></prf-main-nav>
     <!-- Home -->
     <div class="row main-content home text-center" [@showHideMainPage]="showHideMain ? 'show' : 'hide'"
-    [@createDestroy]="showHideMain ? 'create' : 'destroy'">
+        [@createDestroy]="showHideMain ? 'create' : 'destroy'">
         <div class="col-12 outer text-center">
             <div class="name-title-container">
                 <div class="name-heading">Matt Bacon</div>
@@ -12,7 +12,7 @@
                 <div class="title-heading">web dev - programmer</div>
             </div>
 
-            <div class="page-scroll text-center" [@showHide]="showArrow ? 'show' : 'hide'" (click)="hideMainPage()">
+            <div class="page-scroll text-center" (click)="hideMainPage()">
                 <a href="#about-me" class="btn btn-circle">
                     <i class="fa fa-angle-down fa-2x animated"></i>
                 </a>
@@ -23,10 +23,6 @@
     <!-- About Me -->
     <div class="main-content">
         <a name="about-me" #aboutMeAnchor class="link-anchor"></a>
-
-        <!-- <div class="row about-me-row">
-
-        </div> -->
         <div class="row info-row">
             <div class="col-12 text-center info-col">
 
@@ -52,14 +48,6 @@
                                 a smooth user experience with both mobile and
                                 desktop environments
                                 kept in mind.</p>
-
-                            <!-- <br /><br /> -->
-
-                            <!-- During my spare time I enjoy indulging in video games, writing/producing music, or just
-                                    writing code for web pages
-                                    or applications that I find interesting. I'm always looking for new projects to contribute
-                                    to
-                                    and am a timely and compliant learner. So feel free to contact me about anything! -->
                         </div>
                     </div>
                 </div>
@@ -123,9 +111,6 @@
 
                 <i class="fas fa-envelope icon-heading"></i><br />
                 <a href="mailto:mattb103190@gmail.com">mattb103190@gmail.com</a><br />
-
-                <!-- <i class="fas fa-mobile-alt icon-heading"></i><br />
-                <a href="tel:13347969971">1-334-796-9971</a><br /> -->
 
                 <i class="fab fa-github icon-heading"></i><br />
                 <a href="https://www.github.com/nepex" target="_blank"><span placement="left"
@@ -345,11 +330,12 @@
 
             </div>
 
-        <div class="footer-msg text-center">
-            Layout and design by me
-            <br/>
-            <a href="https://drive.google.com/open?id=1_1ov142NH79s_sd1p3Y3lL-p9An4VYCRgD1_SQUyGao" target="_blank" class="resume-link">View Resume</a>
-        </div>
+            <div class="footer-msg text-center">
+                Layout and design by me
+                <br />
+                <a href="https://drive.google.com/open?id=1_1ov142NH79s_sd1p3Y3lL-p9An4VYCRgD1_SQUyGao" target="_blank"
+                    class="resume-link">View Resume</a>
+            </div>
 
         </div>
 
