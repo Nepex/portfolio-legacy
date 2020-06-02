@@ -40,6 +40,20 @@ class SubmittableFormGroup extends FormGroup {
                 animate('.25s')
             ]),
         ]),
+        trigger('showHideAbout', [
+            state('show', style({
+                opacity: '1.0'
+            })),
+            state('hide', style({
+                opacity: '0.0'
+            })),
+            transition('show => hide', [
+                animate('.75s')
+            ]),
+            transition('hide => show', [
+                animate('.75s')
+            ]),
+        ]),
         trigger('createDestroy', [
             state('create', style({
                 display: 'block'
@@ -61,6 +75,8 @@ export class LandingPageComponent implements OnInit {
     scrollPos: number;
     selectedTab: string = 'HOME';
     showHideMain: boolean = true;
+    showHideAbout: boolean = false;
+
     firstLoad: boolean = true;
     emailRegex = /^[^@]+@[^@]+\.[^@]+$/;
     messageForm: SubmittableFormGroup = new SubmittableFormGroup({
@@ -98,9 +114,10 @@ export class LandingPageComponent implements OnInit {
         });
     }
 
-    ngOnInit() {}
+    ngOnInit() { }
 
     hideMainPage() {
+        this.showHideAbout = true;
         this.showHideMain = false;
     }
 
@@ -161,6 +178,7 @@ export class LandingPageComponent implements OnInit {
                 this.firstLoad = false;
             } else {
                 this.showHideMain = false;
+                this.showHideAbout = true;
             }
         }
 

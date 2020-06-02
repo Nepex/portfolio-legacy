@@ -1,7 +1,8 @@
+<prf-main-nav [selectedTab]="selectedTab"></prf-main-nav>
 <a name="home" #homeAnchor></a>
-<div class="container-fluid h-100" id="page">
-    <div class="background-mask"></div>
-    <prf-main-nav [selectedTab]="selectedTab"></prf-main-nav>
+<div class="container-fluid h-100 no-pad-margin" id="page">
+    <div class="background-mask no-pad-margin"></div>
+
     <!-- Home -->
     <div class="row main-content home text-center" [@showHideMainPage]="showHideMain ? 'show' : 'hide'"
         [@createDestroy]="showHideMain ? 'create' : 'destroy'">
@@ -21,9 +22,9 @@
     </div>
 
     <!-- About Me -->
-    <div class="main-content">
+    <div class="main-content about-me-container">
         <a name="about-me" #aboutMeAnchor class="link-anchor"></a>
-        <div class="row info-row">
+        <div class="row info-row no-pad-margin" [@showHideAbout]="showHideAbout ? 'show' : 'hide'">
             <div class="col-12 text-center info-col">
 
                 <div class="row">
@@ -125,7 +126,7 @@
     <!-- Projects -->
     <div class="main-content projects">
         <a name="projects" #projectsAnchor class="link-anchor"></a>
-        <div class="row projects-row">
+        <div class="row projects-row no-pad-margin">
             <div class="col-lg-6 offset-lg-3 text-center">
                 <div class="projects-title-heading">Projects</div>
 
@@ -183,36 +184,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- 
-                    <div class="col-lg-4 col-12 project-col">
-                        <div class="project-content">
-                            <img src="../../../assets//images/portfolio-imgs/artofdreams.jpg" class="project-img" />
-
-                            <div class="project-title-container">
-                                <div class="project-title">
-                                    <strong>Art of Dreams</strong><br />
-                                    Browser Game
-                                    <button class="btn project-btn" (click)="openProjectModal('artofdreams')">View
-                                        Project</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- 
-                    <div class="col-lg-4 col-12 project-col">
-                        <div class="project-content">
-                            <img src="../../../assets//images/portfolio-imgs/pevo.jpg" class="project-img" />
-
-                            <div class="project-title-container">
-                                <div class="project-title">
-                                    <strong>Fallen PEVO</strong><br />
-                                    Charity Website
-                                    <button class="btn project-btn" (click)="openProjectModal('pevo')">View
-                                        Project</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
 
                     <div class="col-lg-4 col-12 project-col">
                         <div class="project-content">
@@ -263,21 +234,6 @@
                         </div>
                     </div>
 
-                    <!-- <div class="col-lg-4 col-12 project-col">
-                        <div class="project-content">
-                            <img src="../../../assets//images/portfolio-imgs/airpropspec.jpg" class="project-img" />
-
-                            <div class="project-title-container">
-                                <div class="project-title">
-                                    <strong>Air Prop Spec.</strong><br />
-                                    Aviation Website
-                                    <button class="btn project-btn" (click)="openProjectModal('airprop')">View
-                                        Project</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
                 </div>
 
             </div>
@@ -288,8 +244,8 @@
     <div class="main-content h-100">
         <a name="contact" #contactAnchor class="link-anchor"></a>
 
-        <div class="row contact-row contact">
-            <div class="col-12 text-center about-col outer">
+        <div class="row contact-row contact no-pad-margin">
+            <div class="col-12 text-center about-col outer no-pad-margin">
                 <div class="contact-title-heading">Send a Message</div>
 
                 <div class="message-form-alerts" *ngFor="let m of messageFormMessages">{{m}}</div>
@@ -333,8 +289,7 @@
             <div class="footer-msg text-center">
                 Layout and design by me
                 <br />
-                <a href="https://drive.google.com/open?id=1_1ov142NH79s_sd1p3Y3lL-p9An4VYCRgD1_SQUyGao" target="_blank"
-                    class="resume-link">View Resume</a>
+                Resume avaiable upon request
             </div>
 
         </div>
