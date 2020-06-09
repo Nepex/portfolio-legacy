@@ -103,6 +103,9 @@ export class LandingPageComponent implements OnInit {
     showBackToTop: boolean = false;
     showMenu: boolean = false;
 
+    showDiscId: boolean = false;
+    showSteamId: boolean = false;
+
     firstLoad: boolean = true;
 
     frontEndRank: number = 0;
