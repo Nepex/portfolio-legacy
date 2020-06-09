@@ -10,12 +10,16 @@ body {
   font-size: 14px; 
   color: #c2bdb4; /* bbbbbb */
 
+  background-color: #0e1010;
+
   //https://ak6.picdn.net/shutterstock/videos/9444866/thumb/10.jpg
   // background-image: url("https://backgrounddownload.com/wp-content/uploads/2018/09/web-agency-background.jpg");
   // background-repeat: no-repeat;
   // background-size: cover;
   // background-attachment: fixed;
   scroll-behavior: smooth;
+
+  overflow-y: hidden;
 }
 
 textarea, select, input, button { box-shadow:none !important;  }
@@ -44,11 +48,11 @@ textarea:focus, input:focus {
 
 a {
   text-decoration: underline;
-  color: #bbbbbb;
+  color: #c2bdb4;
 }
 
 a:hover {
-  color: rgb(131, 131, 131);
+  color: #00aff0;
   text-decoration: none;
   transition: 0.5s;
 }
@@ -78,5 +82,37 @@ a:hover {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #888; // 555
+}
+
+
+@keyframes modal-b-fade {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 0.5;
+  }
+}
+
+@keyframes modal-fade {
+  from {
+      top: -100px;
+      opacity: 0;
+  }
+  to {
+      top: 0;
+      opacity: 1;
+  }
+}
+
+/* .modal-backdrop {
+  opacity: 0.5;
+  animation: ease-in-out .25s modal-b-fade;
+  transition: all .25s ease-in-out;
+} */
+
+.modal-holder {
+  animation: ease-in-out .25s modal-fade;
+  transition: all .25s ease-in-out;
 }
 

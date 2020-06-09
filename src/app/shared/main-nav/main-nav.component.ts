@@ -7,41 +7,23 @@ import { debounce } from 'lodash';
     templateUrl: 'main-nav.component.html',
     styleUrls: ['./main-nav.component.scss'],
     animations: [
-        trigger('showHide', [
-            state('show', style({
-                top: '0px'
-            })),
-            state('hide', style({
-                top: '-42px'
-            })),
-            transition('show => hide', [
-                animate('.25s')
+        trigger('fadeInOut', [
+            transition(':enter', [
+                style({ top: '-42px' }),
+                animate('300ms ease-in', style({ top: '0px' }))
             ]),
-            transition('hide => show', [
-                animate('.25s')
-            ]),
-        ]),
-        trigger('createDestroy', [
-            state('create', style({
-                display: 'block'
-            })),
-            state('destroy', style({
-                display: 'none'
-            })),
-            transition('create => destroy', [
-                animate('.25s')
-            ]),
-            transition('destroy => create', [
-                animate('.0s')
-            ]),
-        ]),
+            transition(':leave', [
+                animate('300ms ease-in', style({ top: '-42px' }))
+            ])
+        ])
     ]
 })
 
 export class MainNavComponent implements OnInit {
     @Input() selectedTab: string;
+    @Input() showMenu: boolean;
+
     isCollapsed: boolean = true;
-    showMenu: boolean = true;
 
     constructor() { 
         // delay resize function so it doesn't get called too many times

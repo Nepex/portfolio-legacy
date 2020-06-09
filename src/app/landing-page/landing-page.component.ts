@@ -28,10 +28,10 @@ class SubmittableFormGroup extends FormGroup {
     animations: [
         trigger('showHideMainPage', [
             state('show', style({
-                top: '0px'
+                opacity: '1'
             })),
             state('hide', style({
-                top: '-100%'
+                opacity: '0'
             })),
             transition('show => hide', [
                 animate('.25s')
@@ -54,6 +54,20 @@ class SubmittableFormGroup extends FormGroup {
                 animate('.75s')
             ]),
         ]),
+        trigger('slideInKnowledge', [
+            state('show', style({
+                bottom: '0px'
+            })),
+            state('hide', style({
+                bottom: '-500px'
+            })),
+            transition('show => hide', [
+                animate('0s')
+            ]),
+            transition('hide => show', [
+                animate('.5s')
+            ]),
+        ]),
         trigger('createDestroy', [
             state('create', style({
                 display: 'block'
@@ -68,6 +82,15 @@ class SubmittableFormGroup extends FormGroup {
                 animate('.0s')
             ]),
         ]),
+        trigger('fadeInOut', [
+            transition(':enter', [
+                style({ opacity: '0' }),
+                animate('300ms ease-in', style({ opacity: '1.0' }))
+            ]),
+            transition(':leave', [
+                animate('300ms ease-in', style({ opacity: '0' }))
+            ])
+        ])
     ]
 })
 
@@ -76,17 +99,15 @@ export class LandingPageComponent implements OnInit {
     selectedTab: string = 'HOME';
     showHideMain: boolean = true;
     showHideAbout: boolean = false;
+    showKnowledge: boolean = true;
+    showBackToTop: boolean = false;
+    showMenu: boolean = false;
 
     firstLoad: boolean = true;
-    emailRegex = /^[^@]+@[^@]+\.[^@]+$/;
-    messageForm: SubmittableFormGroup = new SubmittableFormGroup({
-        email: new FormControl('', [Validators.required, Validators.maxLength(60), Validators.pattern(this.emailRegex)]),
-        message: new FormControl('', [Validators.required, Validators.maxLength(250), Validators.minLength(5)]),
-    });
 
-    loadingRequest: Observable<any>;
-    messageFormMessages = [];
-    messageLeftLength;
+    frontEndRank: number = 0;
+    backEndRank: number = 0;
+    programmingRank: number = 0;
 
     @ViewChild('homeAnchor') homeAnchor: ElementRef;
     @ViewChild('aboutMeAnchor') aboutMeAnchor: ElementRef;
@@ -97,28 +118,25 @@ export class LandingPageComponent implements OnInit {
     constructor(private modal: NgbModal) {
         // this.onScroll = debounce(this.onScroll, 50, { leading: false, trailing: true });
         this.selectedTab = 'ABOUT_ME';
-
-        // Track characters on message
-        this.messageForm.controls['message'].valueChanges.subscribe((v) => {
-            if (!v) {
-                this.messageLeftLength = null;
-
-                return;
-            }
-
-            this.messageLeftLength = 250 - v.length;
-
-            if (this.messageLeftLength < 0) {
-                this.messageLeftLength = 'Limit exceeded';
-            }
-        });
     }
 
-    ngOnInit() { }
+    ngOnInit() { //shitty
+        setTimeout(() => {
+            if (this.scrollPos < 0) {
+                this.showKnowledge = true;
+            } else {
+                this.showKnowledge = false;
+            }
+        }, 500);
+    }
 
+    // hide splash page and animate in other content
     hideMainPage() {
+        // to go back to normal scroll splash, remove overflow on styles.css and this line
+        document.body.style.overflow = 'scroll';
         this.showHideAbout = true;
         this.showHideMain = false;
+        this.showKnowledge = true;
     }
 
     openProjectModal(project) {
@@ -126,31 +144,19 @@ export class LandingPageComponent implements OnInit {
 
         switch (project) {
             case 'cascade':
-                modalRef = this.modal.open(CascadeModalComponent, { size: 'lg' });
+                modalRef = this.modal.open(CascadeModalComponent, { size: 'lg', backdrop: 'static', keyboard: false, windowClass: 'modal-holder' });
                 break;
             case 'prate':
-                modalRef = this.modal.open(PrateModalComponent, { size: 'lg' });
+                modalRef = this.modal.open(PrateModalComponent, { size: 'lg', backdrop: 'static', keyboard: false, windowClass: 'modal-holder' });
                 break;
             case 'mototrax-web':
-                modalRef = this.modal.open(MototraxWebModalComponent, { size: 'lg' });
+                modalRef = this.modal.open(MototraxWebModalComponent, { size: 'lg', backdrop: 'static', keyboard: false, windowClass: 'modal-holder' });
                 break;
             case 'mototrax-mobile':
-                modalRef = this.modal.open(MototraxMobileModalComponent, { size: 'lg' });
-                break;
-            case 'artofdreams':
-                modalRef = this.modal.open(ArtOfDreamsModalComponent, { size: 'lg' });
-                break;
-            case 'pevo':
-                modalRef = this.modal.open(PevoModalComponent, { size: 'lg' });
+                modalRef = this.modal.open(MototraxMobileModalComponent, { size: 'lg', backdrop: 'static', keyboard: false, windowClass: 'modal-holder' });
                 break;
             case 'pihomescreen':
-                modalRef = this.modal.open(PiHomescreenModalComponent, { size: 'lg' });
-                break;
-            case 'globalstar':
-                modalRef = this.modal.open(GlobalstarModalComponent, { size: 'lg' });
-                break;
-            case 'airprop':
-                modalRef = this.modal.open(AirPropModalComponent, { size: 'lg' });
+                modalRef = this.modal.open(PiHomescreenModalComponent, { size: 'lg', backdrop: 'static', keyboard: false, windowClass: 'modal-holder' });
                 break;
         }
     }
@@ -179,12 +185,22 @@ export class LandingPageComponent implements OnInit {
             } else {
                 this.showHideMain = false;
                 this.showHideAbout = true;
+                this.showKnowledge = true;
+                this.loadElementsSlow();
             }
         }
 
         if (aboutMeTop === 0) {
             this.selectedTab = 'ABOUT_ME';
+            this.showBackToTop = false;
         }
+
+        if (aboutMeTop < 0) {
+            this.showBackToTop = true;
+        }
+
+        this.scrollPos = aboutMeTop;
+        console.log(this.scrollPos)
 
         const projectsAnchor = this.projectsAnchor.nativeElement;
         const projectsViewportOffset = projectsAnchor.getBoundingClientRect();
@@ -196,42 +212,17 @@ export class LandingPageComponent implements OnInit {
         const contactAnchor = this.contactAnchor.nativeElement;
         const contactViewportOffset = contactAnchor.getBoundingClientRect();
         const contactTop = contactViewportOffset.top;
-        if (contactTop <= 0) {
+        if (contactTop <= 0.5) {
             this.selectedTab = 'CONTACT';
         }
     }
 
-    sendMessage() {
-        this.messageFormMessages = [];
-        this.messageForm['submitted'] = true;
-
-        if (!this.messageForm.valid) {
-            return;
-        }
-
-        const body = {
-            reply_to: this.messageForm.value.email,
-            from_name: this.messageForm.value.email,
-            to_name: 'mattb103190@gmail.com',
-            message_html: this.messageForm.value.message
-        };
-
-        var serviceId = 'gmail';
-        var templateId = 'template_Q1G6AEQ1';
-        var userId = 'user_5g3SDUEDB23GcN9UDqcFG';
-
-        emailjs.send(serviceId, templateId, body, userId)
-            .then((response) => {
-                this.messageForm['submitted'] = false;
-
-                this.messageFormMessages.push('Message sent!');
-
-                this.messageForm.reset();
-
-            }, (err) => {
-                this.messageForm['submitted'] = false;
-
-                this.messageFormMessages.push('Failed to send message');
-            });
+    loadElementsSlow() {
+        setTimeout(() => {
+            this.showMenu = true;
+            this.frontEndRank = 90;
+            this.backEndRank = 70;
+            this.programmingRank = 60;
+        }, 200);
     }
 }
