@@ -78,13 +78,10 @@
 /** ABOUT ME */
 .about-me-container  {
   background-color: rgba(0, 0, 0, 0.4);
-
-  // background-color: #0e1010;
   color: #c2bdb4;
 }
 
 .link-anchor {
-  // -webkit-padding-before: 0px;
   position: absolute;
 }
 
@@ -119,10 +116,7 @@
 }
 
 .info-row {
-  // border-top: rgba(0, 0, 0, 0.4);
-  // box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
   padding-bottom: 35px;
-  // background-color: rgba(0, 0, 0, 0.4);
   padding-top: 50px;
 }
 
@@ -185,7 +179,6 @@ hr {
 }
 
 .project-col {
-  // cursor: pointer;
   margin-top: 35px;
 }
 
@@ -233,32 +226,13 @@ hr {
   padding-top: 40px;
 }
 
-// .project-content:hover .project-img {
-//   cursor: pointer;
-// }
-
 .project-content:hover .project-title {
   opacity: 1;
-  // cursor: pointer;
   padding-top: 0px;
 }
 
-// .project-content:hover .project-img {
-//   filter: blur(2px);
-//   -webkit-filter: blur(2px);
-//   transition: .5s;
-//   padding: 2px;
-// }
-
-// .project-content:hover .mobile-project-img {
-//   filter: blur(2px);
-//   -webkit-filter: blur(2px);
-//   padding: 2px;
-// }
-
 .project-content:hover .project-title-container {
   opacity: 1;
-  // cursor: pointer;
 }
 
 .project-btn {
@@ -266,21 +240,13 @@ hr {
   border-radius: 20px;
   color: #ffffff;
   background: transparent;
-  // border: 1px solid #00aff0;
   border: 1px solid #000000;
   cursor: pointer;
 }
 
 .project-btn:hover {
-  // background-color: #00aff0;
   background-color: rgba(0, 0, 0, 0.5);
-  // font-weight: 600;
 }
-
-/* Contact */
-// .contact {
-//   height: 100%;
-// }
 
 .contact {
   height: 100%;
@@ -306,8 +272,6 @@ hr {
 }
 
 .contact-row {
-  // border-top: rgba(0, 0, 0, 0.4);
-  // box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
   padding-bottom: 35px;
   padding-top: 50px;
 }
@@ -341,7 +305,6 @@ hr {
 .submit-btn {
   margin: 0px 0px 0px 0px;
   padding: 5px 20px 5px 20px;
-  // font-weight: 600;
   font-size: 15px;
   background-color: #c2bdb4;
   color: #0e1010;
@@ -356,7 +319,6 @@ hr {
   color: #c2bdb4;
   transition: 0.25s;
   border: 1px solid #c2bdb4;
-  // transform: scale(1.048);
   width: 270px;
 }
 
@@ -374,7 +336,6 @@ hr {
   left: 0px;
   color: #c2bdb4;
   width:  100%;
-  // background-color: #000000;
 }
 
 .resume-link {
@@ -382,25 +343,7 @@ hr {
   text-decoration: none;
 }
 
-// .resume-link:hover {
-//   color: #ffffff;
-//   text-decoration: none;
-// }
-
-
 @media (min-width: 344px) {
-  // .footer-msg {
-  //   visibility: hidden;
-  // }
-
-  // .contact {
-  //   min-height: 110%;
-  // }
-
-  // .contact-title-heading {
-  //   padding-top: 35px;
-  // }
-
   .projects-title-heading {
     padding-top: 35px;
   }
@@ -430,10 +373,6 @@ hr {
 }
 
 @media (min-width: 992px) {
-  // .footer-msg {
-  //   visibility: visible;
-  // }
-
   .project-img {
     height: 100%;
     width: 100%;
@@ -445,10 +384,6 @@ hr {
 
   .projects-title-heading {
     padding-top: 77px;
-  }
-
-  .about-me-row {
-    // padding-top: 35px; //35 (old)
   }
 
   .mobile-project-img {
@@ -465,7 +400,6 @@ hr {
     -ms-transform: none;
   }
 }
-
 
 // Home Down Arrow
 .page-scroll .btn-circle i.animated {
@@ -553,7 +487,6 @@ a:focus {
 .btn-circle:focus {
   outline: 0;
   color: #fff;
-  // background: rgba(255, 255, 255, 0.1);
   outline: none;
 }
 
@@ -563,7 +496,7 @@ a:focus {
 }
 
 ::ng-deep .progress {
-  background-color: #5c5c5c; // 5c5c5c
+  background-color: #5c5c5c;
   color: green;
   height: 5px;
   width: 50px;
@@ -576,5 +509,4 @@ a:focus {
 ::ng-deep .progress-bar {
   background-color: #00aff0 !important;
   // display: inline-flex;
-  // padding-bottom: 8px;
 }

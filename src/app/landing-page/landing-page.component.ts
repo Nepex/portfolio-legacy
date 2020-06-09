@@ -164,17 +164,6 @@ export class LandingPageComponent implements OnInit {
 
     @HostListener('document:scroll', ['$event'])
     onScroll() {
-        // const scrollY = window.pageYOffset
-
-        // const homeAnchor = this.homeAnchor.nativeElement;
-        // const homeViewportOffset = homeAnchor.getBoundingClientRect();
-        // const homeTop = homeViewportOffset.top;
-        // if (homeTop <= 0) {
-        //     this.selectedTab = 'HOME';
-        //     this.showArrow = true;
-        //     this.showHideMain = true;
-        // }
-
         const aboutMeAnchor = this.aboutMeAnchor.nativeElement;
         const aboutMeViewportOffset = aboutMeAnchor.getBoundingClientRect();
         const aboutMeTop = aboutMeViewportOffset.top;
