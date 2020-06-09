@@ -133,7 +133,7 @@ export class LandingPageComponent implements OnInit {
     // hide splash page and animate in other content
     hideMainPage() {
         // to go back to normal scroll splash, remove overflow on styles.css and this line
-        document.body.style.overflow = 'scroll';
+        // document.body.style.overflow = 'scroll';
         this.showHideAbout = true;
         this.showHideMain = false;
         this.showKnowledge = true;
@@ -162,7 +162,7 @@ export class LandingPageComponent implements OnInit {
     }
 
 
-    @HostListener('window:scroll', ['$event'])
+    @HostListener('document:scroll', ['$event'])
     onScroll() {
         // const scrollY = window.pageYOffset
 
