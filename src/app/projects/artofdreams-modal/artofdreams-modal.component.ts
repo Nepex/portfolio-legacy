@@ -11,8 +11,8 @@ import { Lightbox } from 'ngx-lightbox';
 export class ArtOfDreamsModalComponent implements OnInit {
     images = [
         {
-            src: '../../../assets/images/portfolio-imgs/artofdreams.jpg',
-            thumb: '../../../assets/images/portfolio-imgs/artofdreams.jpg',
+            src: '../../../assets/images/portfolio/portfolio-imgs/artofdreams.jpg',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/artofdreams.jpg',
             caption: 'Home page.'
         }
     ]

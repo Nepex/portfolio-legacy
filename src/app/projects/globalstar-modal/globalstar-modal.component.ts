@@ -11,8 +11,8 @@ import { Lightbox } from 'ngx-lightbox';
 export class GlobalstarModalComponent implements OnInit {
     images = [
         {
-            src: '../../../assets/images/portfolio-imgs/globalaerospace.jpg',
-            thumb: '../../../assets/images/portfolio-imgs/globalaerospace.jpg',
+            src: '../../../assets/images/portfolio/portfolio-imgs/globalaerospace.jpg',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/globalaerospace.jpg',
             caption: 'Home page.'
         }
     ]

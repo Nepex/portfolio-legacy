@@ -11,38 +11,38 @@ import { Lightbox } from 'ngx-lightbox';
 export class PrateModalComponent implements OnInit {
     images = [
         {
-            src: '../../../assets/images/portfolio-imgs/prate-home.png',
-            thumb: '../../../assets/images/portfolio-imgs/prate-home.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/prate-home.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/prate-home.png',
             caption: 'Landing page for Prate.'
         },
         {
-            src: '../../../assets/images/portfolio-imgs/prate-signup.png',
-            thumb: '../../../assets/images/portfolio-imgs/prate-signup.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/prate-signup.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/prate-signup.png',
             caption: 'Signup page where user would create an account.'
         },
         {
-            src: '../../../assets/images/portfolio-imgs/prate-usersettings.png',
-            thumb: '../../../assets/images/portfolio-imgs/prate-usersettings.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/prate-usersettings.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/prate-usersettings.png',
             caption: 'Where a user could change their name, avatar, interests, colors, font, and password.'
         },
         {
-            src: '../../../assets/images/portfolio-imgs/prate-matching.png',
-            thumb: '../../../assets/images/portfolio-imgs/prate-matching.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/prate-matching.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/prate-matching.png',
             caption: 'Queued up screen while matching.'
         },
         {
-            src: '../../../assets/images/portfolio-imgs/prate-matchedwith.png',
-            thumb: '../../../assets/images/portfolio-imgs/prate-matchedwith.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/prate-matchedwith.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/prate-matchedwith.png',
             caption: 'When a match is found, user is alerted.'
         },
         {
-            src: '../../../assets/images/portfolio-imgs/prate-chat-lowres.png',
-            thumb: '../../../assets/images/portfolio-imgs/prate-chat-lowres.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/prate-chat-lowres.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/prate-chat-lowres.png',
             caption: 'Chatting interface.'
         },
         {
-            src: '../../../assets/images/portfolio-imgs/prate-leftchat.png',
-            thumb: '../../../assets/images/portfolio-imgs/prate-leftchat.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/prate-leftchat.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/prate-leftchat.png',
             caption: 'When either person leaves the chat, an alert is issued, and experience is awarded.'
         }
     ]

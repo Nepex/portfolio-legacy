@@ -11,8 +11,8 @@ import { Lightbox } from 'ngx-lightbox';
 export class AirPropModalComponent implements OnInit {
     images = [
         {
-            src: '../../../assets/images/portfolio-imgs/airpropspec.jpg',
-            thumb: '../../../assets/images/portfolio-imgs/airpropspec.jpg',
+            src: '../../../assets/images/portfolio/portfolio-imgs/airpropspec.jpg',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/airpropspec.jpg',
             caption: 'Home page.'
         }
     ]

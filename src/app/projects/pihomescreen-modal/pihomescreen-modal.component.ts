@@ -11,8 +11,8 @@ import { Lightbox } from 'ngx-lightbox';
 export class PiHomescreenModalComponent implements OnInit {
     images = [
         {
-            src: '../../../assets/images/portfolio-imgs/pi-homescreen-lowres.png',
-            thumb: '../../../assets/images/portfolio-imgs/pi-homescreen-lowres.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/pi-homescreen-lowres.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/pi-homescreen-lowres.png',
             caption: 'Homescreen.'
         }
     ]

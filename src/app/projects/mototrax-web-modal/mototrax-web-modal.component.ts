@@ -11,58 +11,58 @@ import { Lightbox } from 'ngx-lightbox';
 export class MototraxWebModalComponent implements OnInit {
     images = [
         {
-            src: '../../../assets/images/portfolio-imgs/mototrax-web-dashboard.png',
-            thumb: '../../../assets/images/portfolio-imgs/mototrax-web-dashboard.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-dashboard.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-dashboard.png',
             caption: 'Displayed vehicle overview and recent events.'
         },
         {
-            src: '../../../assets/images/portfolio-imgs/mototrax-web-fleet.png',
-            thumb: '../../../assets/images/portfolio-imgs/mototrax-web-fleet.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-fleet.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-fleet.png',
             caption: 'Displayed vehicles within an organization.'
         },
         {
-            src: '../../../assets/images/portfolio-imgs/mototrax-web-vehicle.png',
-            thumb: '../../../assets/images/portfolio-imgs/mototrax-web-vehicle.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-vehicle.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-vehicle.png',
             caption: 'Let the user view a single vehicle.'
         },
         {
-            src: '../../../assets/images/portfolio-imgs/mototrax-web-events.png',
-            thumb: '../../../assets/images/portfolio-imgs/mototrax-web-events.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-events.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-events.png',
             caption: 'Listed out recent events for the user to filter and view.'
         },
         {
-            src: '../../../assets/images/portfolio-imgs/mototrax-web-mapevent.png',
-            thumb: '../../../assets/images/portfolio-imgs/mototrax-web-mapevent.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-mapevent.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-mapevent.png',
             caption: 'Mapped out chosen events by the user.'
         },
         {
-            src: '../../../assets/images/portfolio-imgs/mototrax-web-livetracking-lowres.png',
-            thumb: '../../../assets/images/portfolio-imgs/mototrax-web-livetracking-lowres.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-livetracking-lowres.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-livetracking-lowres.png',
             caption: 'An animated map of all current vehicle movement within the fleet.'
         },
         {
-            src: '../../../assets/images/portfolio-imgs/mototrax-web-geofences.png',
-            thumb: '../../../assets/images/portfolio-imgs/mototrax-web-geofences.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-geofences.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-geofences.png',
             caption: 'Allowed the user to create and edit vehicle geofences.'
         },
         {
-            src: '../../../assets/images/portfolio-imgs/mototrax-web-route.png',
-            thumb: '../../../assets/images/portfolio-imgs/mototrax-web-route.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-route.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-route.png',
             caption: 'Let user edit vehicle routes.'
         },
         // {
-        //     src: '../../../assets/images/portfolio-imgs/mototrax-web-db.png',
-        //     thumb: '../../../assets/images/portfolio-imgs/mototrax-web-db.png',
+        //     src: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-db.png',
+        //     thumb: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-db.png',
         //     caption: 'Driver behavior module that displayed driver statistics, video, and behavior.'
         // },
         {
-            src: '../../../assets/images/portfolio-imgs/mototrax-web-changeorg.png',
-            thumb: '../../../assets/images/portfolio-imgs/mototrax-web-changeorg.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-changeorg.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-changeorg.png',
             caption: 'Organization swapper.'
         },
         {
-            src: '../../../assets/images/portfolio-imgs/mototrax-web-admin.png',
-            thumb: '../../../assets/images/portfolio-imgs/mototrax-web-admin.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-admin.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-admin.png',
             caption: 'Complete admin module.'
         },
     ]

@@ -11,33 +11,33 @@ import { Lightbox } from 'ngx-lightbox';
 export class CascadeModalComponent implements OnInit {
     images = [
         {
-            src: '../../../assets/images/portfolio-imgs/cascade-battle.png',
-            thumb: '../../../assets/images/portfolio-imgs/cascade-battle.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/cascade-battle.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/cascade-battle.png',
             caption: 'A random encounter battle scene.'
         },
         {
-            src: '../../../assets/images/portfolio-imgs/cascade-party.png',
-            thumb: '../../../assets/images/portfolio-imgs/cascade-party.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/cascade-party.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/cascade-party.png',
             caption: 'Party management, where a user would manage spells, equipment, and stats.'
         },
         // {
-        //     src: '../../../assets/images/portfolio-imgs/cascade-scene.png',
-        //     thumb: '../../../assets/images/portfolio-imgs/cascade-scene.png',
+        //     src: '../../../assets/images/portfolio/portfolio-imgs/cascade-scene.png',
+        //     thumb: '../../../assets/images/portfolio/portfolio-imgs/cascade-scene.png',
         //     caption: 'A dialogue scene which progresses conversation and decision making for the user.'
         // },
         {
-            src: '../../../assets/images/portfolio-imgs/cascade-travel.png',
-            thumb: '../../../assets/images/portfolio-imgs/cascade-travel.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/cascade-travel.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/cascade-travel.png',
             caption: 'An interactive map where the user can walk around and encounter random enemies.'
         },
         {
-            src: '../../../assets/images/portfolio-imgs/cascade-eqpt.png',
-            thumb: '../../../assets/images/portfolio-imgs/cascade-eqpt.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/cascade-eqpt.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/cascade-eqpt.png',
             caption: 'Here a user can manage equipment for specific party members.'
         },
         {
-            src: '../../../assets/images/portfolio-imgs/cascade-store.png',
-            thumb: '../../../assets/images/portfolio-imgs/cascade-store.png',
+            src: '../../../assets/images/portfolio/portfolio-imgs/cascade-store.png',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/cascade-store.png',
             caption: 'An interactive shop where a user could buy and sell items.'
         },
     ]

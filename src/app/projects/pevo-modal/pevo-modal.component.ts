@@ -11,8 +11,8 @@ import { Lightbox } from 'ngx-lightbox';
 export class PevoModalComponent implements OnInit {
     images = [
         {
-            src: '../../../assets/images/portfolio-imgs/pevo.jpg',
-            thumb: '../../../assets/images/portfolio-imgs/pevo.jpg',
+            src: '../../../assets/images/portfolio/portfolio-imgs/pevo.jpg',
+            thumb: '../../../assets/images/portfolio/portfolio-imgs/pevo.jpg',
             caption: 'Home page.'
         }
     ]
