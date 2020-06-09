@@ -209,9 +209,12 @@ export class LandingPageComponent implements OnInit {
     loadElementsSlow() {
         setTimeout(() => {
             this.showMenu = true;
+        }, 200);
+
+        setTimeout(() => {
             this.frontEndRank = 90;
             this.backEndRank = 70;
             this.programmingRank = 60;
-        }, 200);
+        }, 450);
     }
 }
