@@ -28,10 +28,12 @@ class SubmittableFormGroup extends FormGroup {
     animations: [
         trigger('showHideMainPage', [
             state('show', style({
-                opacity: '1'
+                opacity: '1',
+                display: 'block'
             })),
             state('hide', style({
-                opacity: '0'
+                opacity: '0',
+                display: 'none'
             })),
             transition('show => hide', [
                 animate('.25s')
