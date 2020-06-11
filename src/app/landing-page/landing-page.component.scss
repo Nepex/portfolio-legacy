@@ -1,6 +1,5 @@
 // General
 .back-to-top {
-  color: #c2bdb4;
   position: fixed;
   font-size: 22px;
   bottom: 10px;
@@ -12,6 +11,17 @@
   width: 35px;
   height: 35px;
   transition: 0.5s;
+}
+
+.back-to-top a {
+  color: #0e1010;
+  transition: .5s;
+}
+
+
+.back-to-top a:hover {
+  color: #00aff0;
+  transition: .5s;
 }
 
 .back-to-top:hover {
@@ -40,6 +50,22 @@
   align-items: center;
   -ms-flex-direction: column;
   flex-direction: column;
+}
+
+
+.outer2 {
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+}
+
+.outer2 hr {
+  opacity: 0;
+  margin-top: 0px;
+  margin-bottom:  0px;
+  width: 100%;
 }
 
 .section-container {
@@ -274,8 +300,12 @@
   font-size: 15px;
   background-color: #c2bdb4;
   color: #0e1010;
-  border: 1px solid #000000;
+  border: 1px solid #0e1010;
 
+margin-right: 10px;
+margin-top: 10px;
+
+margin-bottom: 10px;
   width: 250px;
   transition: 0.25s;
 }
@@ -284,8 +314,8 @@
   background-color: #0e1010;
   color: #c2bdb4;
   transition: 0.25s;
-  border: 1px solid #c2bdb4;
-  width: 270px;
+  border: 1px solid #0e1010;
+  // width: 270px;
 }
 
 .footer-msg {

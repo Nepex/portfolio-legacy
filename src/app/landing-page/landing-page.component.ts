@@ -194,7 +194,6 @@ export class LandingPageComponent implements OnInit {
         }
 
         this.scrollPos = aboutMeTop;
-        console.log(this.scrollPos)
 
         const projectsAnchor = this.projectsAnchor.nativeElement;
         const projectsViewportOffset = projectsAnchor.getBoundingClientRect();
@@ -203,11 +202,19 @@ export class LandingPageComponent implements OnInit {
             this.selectedTab = 'PROJECTS';
         }
 
-        const contactAnchor = this.contactAnchor.nativeElement;
-        const contactViewportOffset = contactAnchor.getBoundingClientRect();
-        const contactTop = contactViewportOffset.top;
-        if (contactTop <= 0.5) {
-            this.selectedTab = 'CONTACT';
+        // const contactAnchor = this.contactAnchor.nativeElement;
+        // const contactViewportOffset = contactAnchor.getBoundingClientRect();
+        // const contactTop = contactViewportOffset.top;
+        // if (contactTop <= 0.5) {
+        //     this.selectedTab = 'CONTACT';
+        // }
+
+
+        // console.log(document.body.scrollHeight, document.body.scrollTop); 
+
+
+        if(window.scrollY === document.body.scrollHeight - window.innerHeight) {
+            this.selectedTab = 'CONTACT'
         }
     }
 

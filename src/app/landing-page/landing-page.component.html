@@ -73,7 +73,7 @@
                         <span class="about-title-heading">Experience</span> <br />
                         <hr class="about-me-hr">
 
-                        <i class="fas fa-briefcase icon-heading"></i> <br />
+                        <i class="fas fa-briefcase about-icon-heading"></i> <br />
 
                         <strong>Programmer</strong><br />
                         AngelTrax<br />
@@ -85,7 +85,7 @@
                         2015 - 2016<br />
                         <i class="fas fa-map-marker-alt"></i> Slocomb, AL <br /> <br />
 
-                        <i class="fas fa-graduation-cap icon-heading"></i> <br />
+                        <i class="fas fa-graduation-cap about-icon-heading"></i> <br />
                         <strong>Bachelor's Degree (CIS)</strong><br />
                         Troy University<br />
                         2010 - 2014<br />
@@ -96,15 +96,15 @@
                         <span class="about-title-heading">Knowledge</span><br />
                         <hr class="about-me-hr">
 
-                        <i class="fas fa-eye icon-heading" style="font-size: 14px;"></i>&nbsp;<strong>Frontend</strong>
+                        <i class="fas fa-eye about-icon-heading" style="font-size: 14px;"></i>&nbsp;<strong>Frontend</strong>
                         <ngb-progressbar [value]="frontEndRank"></ngb-progressbar>
                         <span>Angular</span><br />
                         <span>TypeScript</span><br />
-                        <span>HTML5</span><br />
-                        <span>SCSS/CSS Frameworks</span><br />
+                        <span>HTML/CSS</span><br />
+                        <span>CSS Frameworks</span><br />
                         <span>Unit Testing</span><br />
 
-                        <i class="fas fa-server icon-heading"
+                        <i class="fas fa-server about-icon-heading"
                             style="font-size: 14px;"></i>&nbsp;<strong>Backend</strong>
                         <ngb-progressbar [value]="backEndRank"></ngb-progressbar>
                         <span>Nginx</span><br />
@@ -112,7 +112,7 @@
                         <span>PHP</span><br />
                         <span>PostgreSQL</span><br />
                         <span>mySQLi</span><br />
-                        <i class="fas fa-code icon-heading"
+                        <i class="fas fa-code about-icon-heading"
                             style="font-size: 14px;"></i>&nbsp;<strong>Programming</strong>
                         <ngb-progressbar [value]="programmingRank"></ngb-progressbar>
                         <span>C#</span><br />
@@ -123,10 +123,10 @@
                         <span class="about-title-heading">Contact</span><br />
                         <hr class="about-me-hr">
 
-                        <i class="fas fa-envelope icon-heading"></i><br />
+                        <i class="fas fa-envelope about-icon-heading"></i><br />
                         <a href="mailto:mattb103190@gmail.com">mattb103190@gmail.com</a><br />
 
-                        <i class="fab fa-github icon-heading"></i><br />
+                        <i class="fab fa-github about-icon-heading"></i><br />
                         <a href="https://www.github.com/nepex" target="_blank"><span placement="left"
                                 ngbTooltip="Personal account">Nepex</span></a> <br />
                         <a href="https://www.github.com/mattb103190" target="_blank"><span placement="left"
@@ -375,25 +375,26 @@
     </div>
 
     <!-- Contact -->
-    <div class="main-content h-100 section-container">
+    <div class="main-content section-container" style="background-color: #c2bdb4; color: #0e1010; ">
         <a name="contact" #contactAnchor class="link-anchor"></a>
-        <div class="row h-100 no-pad-margin">
+        <div class="row no-pad-margin">
             <div class="col-12 text-center no-pad-margin">
                 <!-- Title and description -->
                 <div class="row no-pad-margin">
                     <div class="col-lg-6 offset-lg-3 col-10 offset-1 ">
-                        <div class="title-section" style="padding-top: 90px;"><i class="fas fa-envelope"></i>
-                            Contact Me</div>
-                        <div class="text-section" style="padding-bottom: 10px;">
+                        <!-- <div class="title-section" style="padding-top: 20px;">
+                            <i class="fas fa-envelope"></i>
+                            Contact Me</div> -->
+                        <!-- <div class="text-section" style="padding-bottom: 10px;">
                             <p>Always looking for new projects so send me a message anytime.</p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
                 <!-- Contact button container -->
                 <div class="contact-row">
                     <div class="row no-pad-margin">
-                        <div class="col-12 text-center outer no-pad-margin">
+                        <div class="col-12 text-center outer2 no-pad-margin">
                             <a href="mailto:mattb103190@gmail.com"><button class="contact-btn cursor-pointer"><i
                                         class="fas fa-envelope"></i><br /> Email</button></a>
                             <a href="https://www.github.com/nepex" target="_blank"><button
@@ -405,15 +406,17 @@
                             <button class="contact-btn cursor-pointer" (click)="showDiscId = !showDiscId"><i
                                     class="fab fa-discord"></i><br />
                                 <span *ngIf="showDiscId">nepex#7509</span><span
-                                    *ngIf="!showDiscId">Discord</span></button>
+                                    *ngIf="!showDiscId">Discord</span></button> 
 
-                            <span style="padding-top: 15px;">Resume available upon request</span>
+
+                                    <!-- <hr> -->
+                            <!-- <div style="padding-top: 5px; padding-bottom: 20px;">Resume available upon request</div> -->
                         </div>
 
                         <!-- Footer -->
-                        <div class="footer-msg text-center">
+                        <!-- <div class="footer-msg text-center">
                             Layout and design by me
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>

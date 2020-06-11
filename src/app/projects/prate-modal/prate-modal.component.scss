@@ -166,6 +166,12 @@ a {
   display: none !important;
 }
 
+::ng-deep .lb-image {
+  border: 0px !important;
+  border-radius: 0px !important;
+}
+
+
 ::ng-deep .lightboxOverlay {
   // background-color: rgba(0,0,0,.5);
 }
