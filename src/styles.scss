@@ -76,8 +76,10 @@ a:hover {
 textarea,
 select,
 input,
-button {
+button,
+button:focus {
   box-shadow: none !important;
+  outline: none !important;
 }
 
 textarea:focus,
