@@ -106,7 +106,7 @@ export class LandingPageComponent implements OnInit {
 
     showSplash: boolean = true;
     showAbout: boolean = false;
-    showKnowledge: boolean = true;
+    showKnowledge: boolean = true;;
     showBackToTop: boolean = false;
     showMenu: boolean = false;
     showDiscId: boolean = false;
@@ -122,6 +122,13 @@ export class LandingPageComponent implements OnInit {
 
     ngOnInit(): void {
         this.selectedTab = 'ABOUT_ME';
+
+        // Cause knowledge to slide in if page opens on splash screen
+        setTimeout(() => {
+            if (!this.scrollPos) {
+                this.showKnowledge = false;
+            }
+        }, 100);
     }
 
     // Select appropriate tab while scrolling
@@ -131,13 +138,10 @@ export class LandingPageComponent implements OnInit {
 
         this.scrollPos = aboutMeFromTop;
 
-        if (this.scrollPos <= -1) {
-            this.hideSplash();
-            this.loadElementsSlow();
-        }
-
         if (this.scrollPos < 0) {
             this.showBackToTop = true;
+            this.hideSplash();
+            this.loadElementsSlow();
         }
 
         if (aboutMeFromTop === 0) {
