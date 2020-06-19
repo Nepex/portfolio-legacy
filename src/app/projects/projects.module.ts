@@ -7,11 +7,8 @@ import { LightboxModule } from 'ngx-lightbox';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // App
-import { CascadeModalComponent } from './cascade-modal/cascade-modal.component';
-import { MototraxWebModalComponent } from './mototrax-web-modal/mototrax-web-modal.component';
-import { MototraxMobileModalComponent } from './mototrax-mobile-modal/mototrax-mobile-modal.component';
-import { PiHomescreenModalComponent } from './pihomescreen-modal/pihomescreen-modal.component';
-import { PrateModalComponent } from './prate-modal/prate-modal.component';
+import { ProjectModalComponent } from './project-modal/project-modal.component';
+import { ProjectService } from './project.service';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
@@ -24,19 +21,11 @@ import { SharedModule } from '../shared/shared.module';
     exports: [
     ],
     declarations: [
-        CascadeModalComponent,
-        MototraxMobileModalComponent,
-        MototraxWebModalComponent,
-        PiHomescreenModalComponent,
-        PrateModalComponent
+        ProjectModalComponent
     ],
-    providers: [],
+    providers: [ProjectService],
     entryComponents: [
-        CascadeModalComponent,
-        MototraxMobileModalComponent,
-        MototraxWebModalComponent,
-        PiHomescreenModalComponent,
-        PrateModalComponent
+        ProjectModalComponent
     ]
 })
 export class ProjectsModule { }

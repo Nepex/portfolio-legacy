@@ -7,11 +7,8 @@ import { throttle } from 'lodash';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 // App
-import { CascadeModalComponent } from '../projects/cascade-modal/cascade-modal.component';
-import { MototraxMobileModalComponent } from '../projects/mototrax-mobile-modal/mototrax-mobile-modal.component';
-import { MototraxWebModalComponent } from '../projects/mototrax-web-modal/mototrax-web-modal.component';
-import { PiHomescreenModalComponent } from '../projects/pihomescreen-modal/pihomescreen-modal.component';
-import { PrateModalComponent } from '../projects/prate-modal/prate-modal.component';
+import { ProjectModalComponent } from '../projects/project-modal/project-modal.component';
+import { ProjectService } from '../projects/project.service';
 
 // Main portfolio landing page
 @Component({
@@ -121,14 +118,14 @@ export class LandingPageComponent implements OnInit {
     backEndRank: number = 0;
     programmingRank: number = 0;
 
-    constructor(private modal: NgbModal) { }
+    constructor(private modal: NgbModal, private projectService: ProjectService) { }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.selectedTab = 'ABOUT_ME';
     }
 
     // Select appropriate tab while scrolling
-    onScroll() {
+    onScroll(): void {
         let aboutMeFromTop = this.aboutMeAnchor.nativeElement.getBoundingClientRect().top,
             projectsFromTop = this.projectsAnchor.nativeElement.getBoundingClientRect().top;
 
@@ -158,39 +155,21 @@ export class LandingPageComponent implements OnInit {
         }
     }
 
+    // Gets project id from click event, gets data and opens modal
     openProjectModal(project: string): void {
-        let modal;
-
-        switch (project) {
-            case 'cascade':
-                modal = CascadeModalComponent;
-                break;
-            case 'prate':
-                modal = PrateModalComponent;
-                break;
-            case 'mototrax-web':
-                modal = MototraxWebModalComponent;
-                break;
-            case 'mototrax-mobile':
-                modal = MototraxMobileModalComponent;
-                break;
-            case 'pihomescreen':
-                modal = PiHomescreenModalComponent;
-                break;
-        }
-
-        this.modal.open(modal, { size: 'lg', backdrop: 'static', keyboard: false, windowClass: 'modal-holder' });
+        let modalRef = this.modal.open(ProjectModalComponent, { size: 'lg', backdrop: 'static', keyboard: false, windowClass: 'modal-holder' });
+        modalRef.componentInstance.projectData = this.projectService.getProjectData(project);
     }
 
     // Hide splash page and animate in other content
-    hideSplash() {
+    hideSplash(): void {
         this.showSplash = false;
         this.showAbout = true;
         this.showKnowledge = true;
     }
 
     // Slide in elements slow
-    loadElementsSlow() {
+    loadElementsSlow(): void {
         setTimeout(() => {
             this.showMenu = true;
             this.frontEndRank = 90;

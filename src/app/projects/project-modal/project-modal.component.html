@@ -1,0 +1,48 @@
+<!-- Modal header -->
+<div class="modal-header no-pad-margin" *ngIf="projectData">
+    <div class="modal-close-btn-container text-center no-pad-margin cursor-pointer" (click)="activeModal.dismiss()">
+        <i class="fas fa-times modal-close-btn"></i>
+    </div>
+    <div class="modal-project-title text-left">{{ projectData.title }}</div>
+</div>
+<!-- Modal body -->
+<div class="container modal-body" *ngIf="projectData">
+    <div class="row">
+        <div class="col-12 text-center">
+            <div class="modal-project-description text-left">
+                {{ projectData.description }}
+            </div>
+
+            <div class="modal-project-resources-used">
+                <i>Made using...</i><br />
+                {{ projectData.techUsed }}
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-6 modal-project-col" *ngFor="let image of projectData.images; let i=index;">
+                    <div class="modal-project-content" (click)="open(i)">
+                        <img [src]="image.thumb"
+                            [ngClass]="{'modal-mobile-project-img': projectData.isMobileProject, 'modal-project-img': !projectData.isMobileProject}" />
+
+                        <div
+                            [ngClass]="{'modal-mobile-project-zoom-container' : projectData.isMobileProject, 'modal-project-zoom-container' : !projectData.isMobileProject}">
+                            <div class="modal-project-zoom">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal footer -->
+<div class="modal-footer text-center" *ngIf="projectData">
+    Source Code: &nbsp;
+    <span *ngIf="projectData.sourceCode.frontEndUrl"><a href="{{ projectData.sourceCode.frontEndUrl }}" target="_blank"
+            tabindex="-1">Web</a></span> &nbsp;
+    <span *ngIf="projectData.sourceCode.backEndUrl"><a href="{{ projectData.sourceCode.backEndUrl }}" target="_blank"
+            tabindex="-1">API</a></span>
+    <span *ngIf="!projectData.sourceCode.frontEndUrl && !projectData.sourceCode.backEndUrl">N/A</span>
+</div>
