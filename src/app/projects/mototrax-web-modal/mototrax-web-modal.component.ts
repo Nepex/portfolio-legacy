@@ -50,11 +50,6 @@ export class MototraxWebModalComponent implements OnInit {
             thumb: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-route.png',
             caption: 'Let user edit vehicle routes.'
         },
-        // {
-        //     src: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-db.png',
-        //     thumb: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-db.png',
-        //     caption: 'Driver behavior module that displayed driver statistics, video, and behavior.'
-        // },
         {
             src: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-changeorg.png',
             thumb: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-changeorg.png',

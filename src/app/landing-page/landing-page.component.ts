@@ -1,26 +1,19 @@
+// Angular
 import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular/core';
-import { CascadeModalComponent } from '../projects/cascade-modal/cascade-modal.component';
-import { PrateModalComponent } from '../projects/prate-modal/prate-modal.component';
-import { MototraxWebModalComponent } from '../projects/mototrax-web-modal/mototrax-web-modal.component';
-import { MototraxMobileModalComponent } from '../projects/mototrax-mobile-modal/mototrax-mobile-modal.component';
-import { ArtOfDreamsModalComponent } from '../projects/artofdreams-modal/artofdreams-modal.component';
-import { PevoModalComponent } from '../projects/pevo-modal/pevo-modal.component';
-import { PiHomescreenModalComponent } from '../projects/pihomescreen-modal/pihomescreen-modal.component';
-import { GlobalstarModalComponent } from '../projects/globalstar-modal/globalstar-modal.component';
-import { AirPropModalComponent } from '../projects/airprop-modal/airprop-modal.component';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { debounce } from 'lodash';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
-import { Observable } from 'rxjs';
 
-import emailjs from 'emailjs-com';
+// NPM
+// import { debounce } from 'lodash';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-class SubmittableFormGroup extends FormGroup {
-    /** Boolean - if form has been submitted */
-    public submitted = false;
-}
+// App
+import { CascadeModalComponent } from '../projects/cascade-modal/cascade-modal.component';
+import { MototraxMobileModalComponent } from '../projects/mototrax-mobile-modal/mototrax-mobile-modal.component';
+import { MototraxWebModalComponent } from '../projects/mototrax-web-modal/mototrax-web-modal.component';
+import { PiHomescreenModalComponent } from '../projects/pihomescreen-modal/pihomescreen-modal.component';
+import { PrateModalComponent } from '../projects/prate-modal/prate-modal.component';
 
+// Main portfolio landing page
 @Component({
     selector: 'prf-landing-page',
     templateUrl: 'landing-page.component.html',
@@ -97,35 +90,37 @@ class SubmittableFormGroup extends FormGroup {
 })
 
 export class LandingPageComponent implements OnInit {
-    scrollPos: number;
-    selectedTab: string = 'HOME';
-    showHideMain: boolean = true;
-    showHideAbout: boolean = false;
-    showKnowledge: boolean = true;
-    showBackToTop: boolean = false;
-    showMenu: boolean = false;
-
-    showDiscId: boolean = false;
-    showSteamId: boolean = false;
-
-    firstLoad: boolean = true;
-
-    frontEndRank: number = 0;
-    backEndRank: number = 0;
-    programmingRank: number = 0;
-
+    // Element refs
     @ViewChild('homeAnchor') homeAnchor: ElementRef;
     @ViewChild('aboutMeAnchor') aboutMeAnchor: ElementRef;
     @ViewChild('projectsAnchor') projectsAnchor: ElementRef;
     @ViewChild('contactAnchor') contactAnchor: ElementRef;
 
+    // UI
+    selectedTab: string = 'HOME';
+
+    showHideMain: boolean = true;
+    showHideAbout: boolean = false;
+    showKnowledge: boolean = true;
+    showBackToTop: boolean = false;
+    showMenu: boolean = false;
+    showDiscId: boolean = false;
+    showSteamId: boolean = false;
+
+    firstLoad: boolean = true;
+    scrollPos: number;
+
+    frontEndRank: number = 0;
+    backEndRank: number = 0;
+    programmingRank: number = 0;
 
     constructor(private modal: NgbModal) {
         // this.onScroll = debounce(this.onScroll, 50, { leading: false, trailing: true });
         this.selectedTab = 'ABOUT_ME';
     }
 
-    ngOnInit() { //shitty
+    // If page is loaded in and scroll position is past the top, animate in elements automatically
+    ngOnInit() {
         setTimeout(() => {
             if (this.scrollPos < 0) {
                 this.showKnowledge = true;
@@ -135,38 +130,33 @@ export class LandingPageComponent implements OnInit {
         }, 500);
     }
 
-    // hide splash page and animate in other content
-    hideMainPage() {
-        // to go back to normal scroll splash, remove overflow on styles.css and this line
-        // document.body.style.overflow = 'scroll';
-        this.showHideAbout = true;
-        this.showHideMain = false;
-        this.showKnowledge = true;
-    }
-
-    openProjectModal(project) {
-        let modalRef;
+    // Open passed in project in a modal
+    openProjectModal(project: string): void {
+        let modal;
 
         switch (project) {
             case 'cascade':
-                modalRef = this.modal.open(CascadeModalComponent, { size: 'lg', backdrop: 'static', keyboard: false, windowClass: 'modal-holder' });
+                modal = CascadeModalComponent;
                 break;
             case 'prate':
-                modalRef = this.modal.open(PrateModalComponent, { size: 'lg', backdrop: 'static', keyboard: false, windowClass: 'modal-holder' });
+                modal = PrateModalComponent;
                 break;
             case 'mototrax-web':
-                modalRef = this.modal.open(MototraxWebModalComponent, { size: 'lg', backdrop: 'static', keyboard: false, windowClass: 'modal-holder' });
+                modal = MototraxWebModalComponent;
                 break;
             case 'mototrax-mobile':
-                modalRef = this.modal.open(MototraxMobileModalComponent, { size: 'lg', backdrop: 'static', keyboard: false, windowClass: 'modal-holder' });
+                modal = MototraxMobileModalComponent;
                 break;
             case 'pihomescreen':
-                modalRef = this.modal.open(PiHomescreenModalComponent, { size: 'lg', backdrop: 'static', keyboard: false, windowClass: 'modal-holder' });
+                modal = PiHomescreenModalComponent;
                 break;
         }
+
+        this.modal.open(modal, { size: 'lg', backdrop: 'static', keyboard: false, windowClass: 'modal-holder' });
     }
 
 
+    // Select appropriate tab while scrolling
     @HostListener('document:scroll', ['$event'])
     onScroll() {
         const aboutMeAnchor = this.aboutMeAnchor.nativeElement;
@@ -202,22 +192,19 @@ export class LandingPageComponent implements OnInit {
             this.selectedTab = 'PROJECTS';
         }
 
-        // const contactAnchor = this.contactAnchor.nativeElement;
-        // const contactViewportOffset = contactAnchor.getBoundingClientRect();
-        // const contactTop = contactViewportOffset.top;
-        // if (contactTop <= 0.5) {
-        //     this.selectedTab = 'CONTACT';
-        // }
-
-
-        // console.log(document.body.scrollHeight, document.body.scrollTop); 
-
-
-        if(window.scrollY === document.body.scrollHeight - window.innerHeight) {
+        if (window.scrollY === document.body.scrollHeight - window.innerHeight) {
             this.selectedTab = 'CONTACT'
         }
     }
 
+    // hide splash page and animate in other content
+    hideMainPage() {
+        this.showHideAbout = true;
+        this.showHideMain = false;
+        this.showKnowledge = true;
+    }
+
+    // Slide in elements
     loadElementsSlow() {
         setTimeout(() => {
             this.showMenu = true;

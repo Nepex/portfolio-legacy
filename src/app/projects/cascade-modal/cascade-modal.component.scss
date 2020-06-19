@@ -90,8 +90,6 @@
 }
 
 .close-btn-container {
-  // background-color: #0e1010;
-  // border-radius: 20px;
   color: #c2bdb4;
   position: absolute;
   right: 1px;
@@ -109,16 +107,11 @@
 
 .close-btn-container:hover {
   transition: 0.5s;
-  //background-color: rgb(97, 0, 0); //3d3d3d
 }
 
 .project-title {
   font-size: 30px;
-  // font-weight: bold;
   width: 100%;
-
-  
-  
 }
 
 ::ng-deep .modal-content {
@@ -130,10 +123,6 @@
   color: #c2bdb4;
   text-align: center;
   overflow-y: auto !important;
-}
-
-a {
-  color: #c2bdb4;
 }
 
 ::ng-deep body.modal-open {
@@ -169,10 +158,6 @@ a {
 ::ng-deep .lb-image {
   border: 0px !important;
   border-radius: 0px !important;
-}
-
-::ng-deep .lightboxOverlay {
-  // background-color: rgba(0,0,0,.5);
 }
 
 @media (min-width: 344px) {
