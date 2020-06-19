@@ -1,29 +1,31 @@
+<!-- Modal header -->
 <div class="modal-header no-pad-margin">
-    <div class="close-btn-container text-center no-pad-margin cursor-pointer" (click)="activeModal.dismiss()">
-        <i class="fas fa-times close-btn"></i>
+    <div class="modal-close-btn-container text-center no-pad-margin cursor-pointer" (click)="activeModal.dismiss()">
+        <i class="fas fa-times modal-close-btn"></i>
     </div>
-    <div class="project-title text-left">PI Homescreen</div>
+    <div class="modal-project-title text-left">PI Homescreen</div>
 </div>
+<!-- Modal body -->
 <div class="container modal-body">
     <div class="row">
         <div class="col-12 text-center">
-            <div class="description text-left">
+            <div class="modal-project-description text-left">
                 Custom homescreen. It displays time, date, day-by-day weather,
                 and has a banner that pops up for weather warnings and other misc. emergencies.
             </div>
 
-            <div class="resources-used">
+            <div class="modal-project-resources-used">
                 <i>Made using...</i><br />
                 HTML, CSS, JavaScript
             </div>
 
             <div class="row">
-                <div class="col-lg-3 col-6 project-col" *ngFor="let image of images; let i=index">
-                    <div class="project-content" (click)="open(i)">
-                        <img [src]="image.thumb" class="project-img" />
+                <div class="col-lg-3 col-6 modal-project-col" *ngFor="let image of images; let i=index">
+                    <div class="modal-project-content" (click)="open(i)">
+                        <img [src]="image.thumb" class="modal-project-img" />
 
-                        <div class="project-zoom-container">
-                            <div class="project-zoom">
+                        <div class="modal-project-zoom-container">
+                            <div class="modal-project-zoom">
                                 <i class="fas fa-search-plus"></i>
                             </div>
                         </div>
@@ -34,6 +36,7 @@
         </div>
     </div>
 </div>
+<!-- Modal footer -->
 <div class="modal-footer text-center">
     Source Code: &nbsp;
     <a href="https://github.com/Nepex/pi-homescreen" target="_blank" tabindex="-1">Web</a>

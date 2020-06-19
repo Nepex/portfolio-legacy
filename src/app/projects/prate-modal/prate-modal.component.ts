@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Lightbox } from 'ngx-lightbox';
+// Angular
+import { Component } from '@angular/core';
 
+// NPM
+import { Lightbox } from 'ngx-lightbox';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
+// Modal for showing a project
 @Component({
     selector: 'prf-prate-modal',
     templateUrl: 'prate-modal.component.html',
     styleUrls: ['./prate-modal.component.scss']
 })
-
-export class PrateModalComponent implements OnInit {
+export class PrateModalComponent {
     images = [
         {
             src: '../../../assets/images/portfolio/portfolio-imgs/prate-home.png',
@@ -49,12 +52,12 @@ export class PrateModalComponent implements OnInit {
 
     constructor(public activeModal: NgbActiveModal, private lightbox: Lightbox) { }
 
-    ngOnInit() { }
-
+    // Open lightbox image zoom
     open(index: number): void {
         this.lightbox.open(this.images, index, { centerVertically: true, fadeDuration: 0 });
     }
 
+    // Close lightbox image zoom
     close(): void {
         this.lightbox.close();
     }

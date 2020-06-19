@@ -1,14 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+// Angular
+import { Component } from '@angular/core';
+
+// NPM
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Lightbox } from 'ngx-lightbox';
 
+// Modal for showing a project
 @Component({
     selector: 'prf-cascade-modal',
     templateUrl: 'cascade-modal.component.html',
     styleUrls: ['./cascade-modal.component.scss']
 })
 
-export class CascadeModalComponent implements OnInit {
+export class CascadeModalComponent {
     images = [
         {
             src: '../../../assets/images/portfolio/portfolio-imgs/cascade-battle.png',
@@ -35,16 +39,16 @@ export class CascadeModalComponent implements OnInit {
             thumb: '../../../assets/images/portfolio/portfolio-imgs/cascade-store.png',
             caption: 'An interactive shop where a user could buy and sell items.'
         },
-    ]
+    ];
 
     constructor(public activeModal: NgbActiveModal, private lightbox: Lightbox) { }
 
-    ngOnInit() { }
-
+    // Open lightbox image zoom
     open(index: number): void {
         this.lightbox.open(this.images, index, { centerVertically: true, fadeDuration: 0 });
     }
 
+    // Close lightbox image zoom
     close(): void {
         this.lightbox.close();
     }
