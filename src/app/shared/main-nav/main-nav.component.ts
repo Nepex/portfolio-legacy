@@ -1,6 +1,9 @@
-import { Component, OnInit, HostListener, Input } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
-import { debounce } from 'lodash';
+// Angular
+import { Component, HostListener, Input } from '@angular/core';
+import { trigger, style, transition, animate } from '@angular/animations';
+
+// NPM
+import { throttle } from 'lodash';
 
 @Component({
     selector: 'prf-main-nav',
@@ -19,18 +22,20 @@ import { debounce } from 'lodash';
     ]
 })
 
-export class MainNavComponent implements OnInit {
+export class MainNavComponent {
     @Input() selectedTab: string;
     @Input() showMenu: boolean;
 
     isCollapsed: boolean = true;
 
-    constructor() { 
-        // delay resize function so it doesn't get called too many times
-        this.onResize = debounce(this.onResize, 100, {leading: false, trailing: true});
+    @HostListener("window:scroll", [])
+    onWindowResize() {
+        this.throttledResize();
     }
 
-    ngOnInit() { }
+    throttledResize = throttle(() => this.onResize(), 200, {});
+
+    constructor() { }
 
     @HostListener('window:resize', ['$event'])
     onResize() {
