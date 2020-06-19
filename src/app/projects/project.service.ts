@@ -198,7 +198,42 @@ export class ProjectService {
                     caption: 'Homescreen.'
                 }
             ]
-        }
+        },
+        {
+            id: 'poll-runner',
+            title: 'Poll Runner',
+            description: 'Poll Runner was a coding project I did that would allow an admin to create polls with questions and send it to multiple users. Users would receive email notifications and be able to take the polls. Data would be displayed for the user and admin on a dashboard.',
+            techUsed: 'Angular, HTML, CSS, Bootstrap, Node, pgSQL',
+            sourceCode: { frontEndUrl: 'https://github.com/Nepex/poll-runner', backEndUrl: 'https://github.com/Nepex/poll-runner' },
+            isMobileProject: false,
+            images: [
+                {
+                    src: '../../../assets/images/portfolio/portfolio-imgs/poll-runner-create.png',
+                    thumb: '../../../assets/images/portfolio/portfolio-imgs/poll-runner-create.png',
+                    caption: 'Create poll.'
+                },
+                {
+                    src: '../../../assets/images/portfolio/portfolio-imgs/poll-runner-send.png',
+                    thumb: '../../../assets/images/portfolio/portfolio-imgs/poll-runner-send.png',
+                    caption: 'Send poll.'
+                },
+                {
+                    src: '../../../assets/images/portfolio/portfolio-imgs/poll-runner-take.png',
+                    thumb: '../../../assets/images/portfolio/portfolio-imgs/poll-runner-take.png',
+                    caption: 'Take poll.'
+                },
+                {
+                    src: '../../../assets/images/portfolio/portfolio-imgs/poll-runner-dashboard.png',
+                    thumb: '../../../assets/images/portfolio/portfolio-imgs/poll-runner-dashboard.png',
+                    caption: 'Admin dashboard.'
+                },
+                {
+                    src: '../../../assets/images/portfolio/portfolio-imgs/poll-runner-view-user.png',
+                    thumb: '../../../assets/images/portfolio/portfolio-imgs/poll-runner-view-user.png',
+                    caption: 'View user polls taken.'
+                },
+            ]
+        },
     ];
 
     getProjectData(id: string): Project {
