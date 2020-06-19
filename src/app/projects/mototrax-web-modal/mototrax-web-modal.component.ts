@@ -13,7 +13,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 // Modal for showing a project
 export class MototraxWebModalComponent {
-    images = [
+    images: {src: string, thumb: string, caption: string}[] = [
         {
             src: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-dashboard.png',
             thumb: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-dashboard.png',
@@ -64,7 +64,7 @@ export class MototraxWebModalComponent {
             thumb: '../../../assets/images/portfolio/portfolio-imgs/mototrax-web-admin.png',
             caption: 'Complete admin module.'
         },
-    ]
+    ];
 
     constructor(public activeModal: NgbActiveModal, private lightbox: Lightbox) { }
 

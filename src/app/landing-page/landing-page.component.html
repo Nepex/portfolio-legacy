@@ -14,17 +14,17 @@
 <div class="container-fluid h-100 no-pad-margin" id="page">
 
     <!-- Splash Page -->
-    <div class="row main-content splash-page text-center" [@showHideMainPage]="showHideMain ? 'show' : 'hide'"
-        [@createDestroy]="showHideMain ? 'create' : 'destroy'">
-        <div class="col-12 outer text-center">
-            <div class="name-title-container animate__animated animate__fadeInDown">
-                <div class="name-heading">Matt Bacon</div>
-                <hr class="name-hr">
-                <div class="title-heading">web dev - programmer</div>
+    <div class="row main-content splash-page text-center" [@showHideSplash]="showSplash ? 'show' : 'hide'"
+        [@createDestroy]="showSplash ? 'create' : 'destroy'">
+        <div class="col-12 splash-content-container text-center">
+            <div class="my-name-title-container animate__animated animate__fadeInDown">
+                <div class="my-name-heading">Matt Bacon</div>
+                <hr class="my-name-hr">
+                <div class="my-job-title-heading">web dev - programmer</div>
             </div>
 
-            <div class="page-scroll text-center" (click)="hideMainPage(); loadElementsSlow();">
-                <a href="#about-me" class="btn btn-circle">
+            <div class="power-on-container text-center" (click)="hideSplash(); loadElementsSlow();">
+                <a href="#about-me" class="btn power-on-page">
                     <i class="fas fa-power-off animated"></i>
                 </a>
             </div>
@@ -35,8 +35,8 @@
     <div class="main-content section-container">
         <a name="about-me" #aboutMeAnchor class="link-anchor"></a>
         <div class="row about-info-row no-pad-margin" style="padding-bottom: 0px;">
-            <!-- Image and description -->
-            <div class="col-12 text-center about-info-col" [@showHideAbout]="showHideAbout ? 'show' : 'hide'">
+            <!-- Image and personal description -->
+            <div class="col-12 text-center about-info-col" [@showHideAbout]="showAbout ? 'show' : 'hide'">
 
                 <div class="row">
                     <div class="col-lg-2 offset-lg-5 col-10 offset-1 text-center">
@@ -70,7 +70,7 @@
             <div class="col-12 text-center about-me-cols" [@slideInKnowledge]="showKnowledge ? 'show' : 'hide'">
                 <div class="row">
                     <div class="col-lg-4 col-12 text-center about-info-col">
-                        <span class="about-title-heading">Experience</span> <br />
+                        <span class="about-col-title-heading">Experience</span> <br />
                         <hr class="about-me-hr">
 
                         <i class="fas fa-briefcase about-icon-heading"></i> <br />
@@ -93,7 +93,7 @@
                     </div>
 
                     <div class="col-lg-4 col-12 text-center about-info-col">
-                        <span class="about-title-heading">Knowledge</span><br />
+                        <span class="about-col-title-heading">Knowledge</span><br />
                         <hr class="about-me-hr">
 
                         <i class="fas fa-eye about-icon-heading" style="font-size: 14px;"></i>&nbsp;<strong>Frontend</strong>
@@ -120,7 +120,7 @@
                     </div>
 
                     <div class="col-lg-4 col-12 text-center about-info-col">
-                        <span class="about-title-heading">Contact</span><br />
+                        <span class="about-col-title-heading">Contact</span><br />
                         <hr class="about-me-hr">
 
                         <i class="fas fa-envelope about-icon-heading"></i><br />
@@ -394,7 +394,7 @@
                 <!-- Contact button container -->
                 <div class="contact-row">
                     <div class="row no-pad-margin">
-                        <div class="col-12 text-center outer2 no-pad-margin">
+                        <div class="col-12 text-center contact-container no-pad-margin">
                             <a href="mailto:mattb103190@gmail.com"><button class="contact-btn cursor-pointer"><i
                                         class="fas fa-envelope"></i><br /> Email</button></a>
                             <a href="https://www.github.com/nepex" target="_blank"><button
@@ -407,17 +407,7 @@
                                     class="fab fa-discord"></i><br />
                                 <span *ngIf="showDiscId">nepex#7509</span><span
                                     *ngIf="!showDiscId">Discord</span></button> 
-
-
-                                    <!-- <hr> -->
-                            <!-- <div style="padding-top: 5px; padding-bottom: 20px;">Resume available upon request</div> -->
                         </div>
-
-                        <!-- Footer -->
-                        <!-- <div class="footer-msg text-center">
-                            Layout and design by me
-                        </div> -->
-
                     </div>
                 </div>
             </div>

@@ -12,7 +12,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     styleUrls: ['./prate-modal.component.scss']
 })
 export class PrateModalComponent {
-    images = [
+    images: {src: string, thumb: string, caption: string}[] = [
         {
             src: '../../../assets/images/portfolio/portfolio-imgs/prate-home.png',
             thumb: '../../../assets/images/portfolio/portfolio-imgs/prate-home.png',
@@ -48,7 +48,7 @@ export class PrateModalComponent {
             thumb: '../../../assets/images/portfolio/portfolio-imgs/prate-leftchat.png',
             caption: 'When either person leaves the chat, an alert is issued, and experience is awarded.'
         }
-    ]
+    ];
 
     constructor(public activeModal: NgbActiveModal, private lightbox: Lightbox) { }
 

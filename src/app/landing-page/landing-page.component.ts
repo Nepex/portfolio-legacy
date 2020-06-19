@@ -3,7 +3,7 @@ import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 // NPM
-// import { debounce } from 'lodash';
+import { throttle } from 'lodash';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 // App
@@ -19,7 +19,7 @@ import { PrateModalComponent } from '../projects/prate-modal/prate-modal.compone
     templateUrl: 'landing-page.component.html',
     styleUrls: ['./landing-page.component.scss'],
     animations: [
-        trigger('showHideMainPage', [
+        trigger('showHideSplash', [
             state('show', style({
                 opacity: '1',
                 display: 'block'
@@ -96,41 +96,68 @@ export class LandingPageComponent implements OnInit {
     @ViewChild('projectsAnchor') projectsAnchor: ElementRef;
     @ViewChild('contactAnchor') contactAnchor: ElementRef;
 
+    // Host listeners
+    @HostListener("window:scroll", [])
+    onWindowScroll() {
+        this.throttledScroll();
+    }
+
+    throttledScroll = throttle(() => this.onScroll(), 200, {});
+
     // UI
     selectedTab: string = 'HOME';
 
-    showHideMain: boolean = true;
-    showHideAbout: boolean = false;
+    showSplash: boolean = true;
+    showAbout: boolean = false;
     showKnowledge: boolean = true;
     showBackToTop: boolean = false;
     showMenu: boolean = false;
     showDiscId: boolean = false;
     showSteamId: boolean = false;
 
-    firstLoad: boolean = true;
     scrollPos: number;
 
     frontEndRank: number = 0;
     backEndRank: number = 0;
     programmingRank: number = 0;
 
-    constructor(private modal: NgbModal) {
-        // this.onScroll = debounce(this.onScroll, 50, { leading: false, trailing: true });
+    constructor(private modal: NgbModal) { }
+
+    ngOnInit() {
         this.selectedTab = 'ABOUT_ME';
     }
 
-    // If page is loaded in and scroll position is past the top, animate in elements automatically
-    ngOnInit() {
-        setTimeout(() => {
-            if (this.scrollPos < 0) {
-                this.showKnowledge = true;
-            } else {
-                this.showKnowledge = false;
-            }
-        }, 500);
+    // Select appropriate tab while scrolling
+    onScroll() {
+        let aboutMeFromTop = this.aboutMeAnchor.nativeElement.getBoundingClientRect().top,
+            projectsFromTop = this.projectsAnchor.nativeElement.getBoundingClientRect().top;
+
+        this.scrollPos = aboutMeFromTop;
+
+        if (this.scrollPos <= -1) {
+            this.hideSplash();
+            this.loadElementsSlow();
+        }
+
+        if (this.scrollPos < 0) {
+            this.showBackToTop = true;
+        }
+
+        if (aboutMeFromTop === 0) {
+            this.selectedTab = 'ABOUT_ME';
+            this.showBackToTop = false;
+        }
+
+        if (projectsFromTop <= 0) {
+            this.selectedTab = 'PROJECTS';
+        }
+
+        // If at bottom, select contact tab
+        if (window.scrollY === document.body.scrollHeight - window.innerHeight) {
+            this.selectedTab = 'CONTACT'
+        }
     }
 
-    // Open passed in project in a modal
     openProjectModal(project: string): void {
         let modal;
 
@@ -155,65 +182,20 @@ export class LandingPageComponent implements OnInit {
         this.modal.open(modal, { size: 'lg', backdrop: 'static', keyboard: false, windowClass: 'modal-holder' });
     }
 
-
-    // Select appropriate tab while scrolling
-    @HostListener('document:scroll', ['$event'])
-    onScroll() {
-        const aboutMeAnchor = this.aboutMeAnchor.nativeElement;
-        const aboutMeViewportOffset = aboutMeAnchor.getBoundingClientRect();
-        const aboutMeTop = aboutMeViewportOffset.top;
-        if (aboutMeTop <= -1) {
-            // workaround to get intro page to show on every load
-            if (this.firstLoad) {
-                this.firstLoad = false;
-            } else {
-                this.showHideMain = false;
-                this.showHideAbout = true;
-                this.showKnowledge = true;
-                this.loadElementsSlow();
-            }
-        }
-
-        if (aboutMeTop === 0) {
-            this.selectedTab = 'ABOUT_ME';
-            this.showBackToTop = false;
-        }
-
-        if (aboutMeTop < 0) {
-            this.showBackToTop = true;
-        }
-
-        this.scrollPos = aboutMeTop;
-
-        const projectsAnchor = this.projectsAnchor.nativeElement;
-        const projectsViewportOffset = projectsAnchor.getBoundingClientRect();
-        const projectsTop = projectsViewportOffset.top;
-        if (projectsTop <= 0) {
-            this.selectedTab = 'PROJECTS';
-        }
-
-        if (window.scrollY === document.body.scrollHeight - window.innerHeight) {
-            this.selectedTab = 'CONTACT'
-        }
-    }
-
-    // hide splash page and animate in other content
-    hideMainPage() {
-        this.showHideAbout = true;
-        this.showHideMain = false;
+    // Hide splash page and animate in other content
+    hideSplash() {
+        this.showSplash = false;
+        this.showAbout = true;
         this.showKnowledge = true;
     }
 
-    // Slide in elements
+    // Slide in elements slow
     loadElementsSlow() {
         setTimeout(() => {
             this.showMenu = true;
-        }, 200);
-
-        setTimeout(() => {
             this.frontEndRank = 90;
             this.backEndRank = 70;
             this.programmingRank = 60;
-        }, 450);
+        }, 200);
     }
 }

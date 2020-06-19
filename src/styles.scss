@@ -13,7 +13,6 @@ body {
   color: #c2bdb4;
   background-color: #0e1010;
   scroll-behavior: smooth;
-  // overflow-y: hidden;
 }
 
 // General classes
@@ -45,6 +44,11 @@ a:hover {
   color: #00aff0;
   text-decoration: none;
   transition: 0.5s;
+}
+
+a:focus {
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 // Text highlight custom color

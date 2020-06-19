@@ -13,13 +13,13 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 // Modal for showing a project
 export class PiHomescreenModalComponent {
-    images = [
+    images: {src: string, thumb: string, caption: string}[] = [
         {
             src: '../../../assets/images/portfolio/portfolio-imgs/pi-homescreen-lowres.png',
             thumb: '../../../assets/images/portfolio/portfolio-imgs/pi-homescreen-lowres.png',
             caption: 'Homescreen.'
         }
-    ]
+    ];
 
     constructor(public activeModal: NgbActiveModal, private lightbox: Lightbox) { }
 

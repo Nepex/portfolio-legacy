@@ -14,7 +14,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 // Modal for showing a project
 export class MototraxMobileModalComponent {
-    images = [
+    images: {src: string, thumb: string, caption: string}[] = [
         {
             src: '../../../assets/images/portfolio/portfolio-imgs/mototrax-mobile-splash.png',
             thumb: '../../../assets/images/portfolio/portfolio-imgs/mototrax-mobile-splash.png',
@@ -40,7 +40,7 @@ export class MototraxMobileModalComponent {
             thumb: '../../../assets/images/portfolio/portfolio-imgs/mototrax-mobile-search.png',
             caption: 'Filter popup modal.'
         }
-    ]
+    ];
 
     constructor(public activeModal: NgbActiveModal, private lightbox: Lightbox) { }
 

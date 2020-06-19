@@ -13,7 +13,7 @@ import { Lightbox } from 'ngx-lightbox';
 })
 
 export class CascadeModalComponent {
-    images = [
+    images: {src: string, thumb: string, caption: string}[] = [
         {
             src: '../../../assets/images/portfolio/portfolio-imgs/cascade-battle.png',
             thumb: '../../../assets/images/portfolio/portfolio-imgs/cascade-battle.png',
